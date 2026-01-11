@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Clock, TrendingUp, Target, Lightbulb } from "lucide-react"
+import { FadeIn } from "@/components/animations"
 
 export default function BlogPage() {
   return (
@@ -15,13 +16,17 @@ export default function BlogPage() {
         <section className="pt-32 pb-20 px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1] text-balance">
-                Obtenez plus de réservations
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Guides pratiques, stratégies éprouvées et conseils d'experts pour maximiser les réservations de vos
-                villas de luxe à St Barth. Tout ce que vous devez savoir pour dominer votre marché.
-              </p>
+              <FadeIn>
+                <h1 className="text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1] text-balance font-serif">
+                  Obtenez plus de réservations
+                </h1>
+              </FadeIn>
+              <FadeIn delay={100}>
+                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                  Guides pratiques, stratégies éprouvées et conseils d'experts pour maximiser les réservations de vos
+                  villas de luxe à St Barth. Tout ce que vous devez savoir pour dominer votre marché.
+                </p>
+              </FadeIn>
               <div className="flex flex-wrap gap-3 justify-center">
                 <Button variant="outline" className="border-2 bg-transparent">
                   Tous les articles

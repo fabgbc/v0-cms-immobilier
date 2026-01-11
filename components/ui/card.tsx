@@ -7,7 +7,21 @@ function Card({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="card"
       className={cn(
-        'bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm',
+        'bg-card text-card-foreground flex flex-col gap-6 rounded-sm border border-border/50 py-6 shadow-sm transition-all duration-300 hover:shadow-md hover:shadow-primary/5',
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+
+function CardLuxury({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="card-luxury"
+      className={cn(
+        'bg-card text-card-foreground flex flex-col gap-8 rounded-none border-0 py-8 shadow-xl shadow-primary/5 relative overflow-hidden',
+        'before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-accent/50 before:to-transparent',
         className,
       )}
       {...props}
@@ -83,6 +97,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<'div'>) {
 
 export {
   Card,
+  CardLuxury,
   CardHeader,
   CardFooter,
   CardTitle,

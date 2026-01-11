@@ -3,81 +3,127 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Updated color scheme to match Smoobu.com with vibrant blue accent and light backgrounds */
+/* Luxury color scheme - Gold & Champagne palette inspired by Four Seasons, Aman Resorts */
 :root {
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.15 0.01 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.01 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.01 250);
-  --primary: oklch(0.2 0.02 250);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.97 0.005 220);
-  --secondary-foreground: oklch(0.2 0.02 250);
-  --muted: oklch(0.96 0.005 220);
-  --muted-foreground: oklch(0.45 0.01 250);
-  --accent: oklch(0.55 0.18 220);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.9 0.005 220);
-  --input: oklch(0.9 0.005 220);
-  --ring: oklch(0.55 0.18 220);
-  --chart-1: oklch(0.55 0.18 220);
-  --chart-2: oklch(0.7 0.15 180);
-  --chart-3: oklch(0.5 0.2 300);
-  --chart-4: oklch(0.75 0.18 80);
-  --chart-5: oklch(0.65 0.22 30);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.55 0.18 220);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.2 0.02 250);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* Backgrounds - Warm cream/champagne tones */
+  --background: oklch(0.98 0.008 85);
+  --foreground: oklch(0.18 0.015 45);
+
+  /* Cards - Pure elegant white with subtle warmth */
+  --card: oklch(0.995 0.003 85);
+  --card-foreground: oklch(0.18 0.015 45);
+
+  /* Popover - Same as card */
+  --popover: oklch(0.995 0.003 85);
+  --popover-foreground: oklch(0.18 0.015 45);
+
+  /* Primary - Deep rich espresso/charcoal */
+  --primary: oklch(0.22 0.02 45);
+  --primary-foreground: oklch(0.98 0.008 85);
+
+  /* Secondary - Soft champagne beige */
+  --secondary: oklch(0.94 0.015 85);
+  --secondary-foreground: oklch(0.22 0.02 45);
+
+  /* Muted - Subtle warm gray */
+  --muted: oklch(0.95 0.008 85);
+  --muted-foreground: oklch(0.48 0.01 45);
+
+  /* Accent - Luxurious Gold/Champagne */
+  --accent: oklch(0.72 0.12 80);
+  --accent-foreground: oklch(0.18 0.015 45);
+
+  /* Gold variants for gradients */
+  --gold-light: oklch(0.82 0.10 82);
+  --gold-dark: oklch(0.62 0.14 78);
+
+  /* Destructive - Muted burgundy (luxury red) */
+  --destructive: oklch(0.50 0.18 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  /* Borders - Subtle warm tones */
+  --border: oklch(0.90 0.008 85);
+  --input: oklch(0.92 0.006 85);
+  --ring: oklch(0.72 0.12 80);
+
+  /* Chart colors - Luxury palette */
+  --chart-1: oklch(0.72 0.12 80);
+  --chart-2: oklch(0.65 0.08 45);
+  --chart-3: oklch(0.55 0.06 180);
+  --chart-4: oklch(0.75 0.10 60);
+  --chart-5: oklch(0.50 0.12 25);
+
+  /* Refined radius for luxury feel */
+  --radius: 0.5rem;
+
+  /* Sidebar - Elegant dark */
+  --sidebar: oklch(0.22 0.02 45);
+  --sidebar-foreground: oklch(0.95 0.008 85);
+  --sidebar-primary: oklch(0.72 0.12 80);
+  --sidebar-primary-foreground: oklch(0.18 0.015 45);
+  --sidebar-accent: oklch(0.30 0.02 45);
+  --sidebar-accent-foreground: oklch(0.95 0.008 85);
+  --sidebar-border: oklch(0.30 0.015 45);
+  --sidebar-ring: oklch(0.72 0.12 80);
 }
 
+/* Dark mode - Elegant dark theme with gold accents */
 .dark {
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.15 0.01 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.01 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.01 250);
-  --primary: oklch(0.2 0.02 250);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.97 0.005 220);
-  --secondary-foreground: oklch(0.2 0.02 250);
-  --muted: oklch(0.96 0.005 220);
-  --muted-foreground: oklch(0.45 0.01 250);
-  --accent: oklch(0.55 0.18 220);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.5 0.2 30);
+  --background: oklch(0.14 0.015 45);
+  --foreground: oklch(0.95 0.008 85);
+
+  --card: oklch(0.18 0.015 45);
+  --card-foreground: oklch(0.95 0.008 85);
+
+  --popover: oklch(0.18 0.015 45);
+  --popover-foreground: oklch(0.95 0.008 85);
+
+  --primary: oklch(0.95 0.008 85);
+  --primary-foreground: oklch(0.18 0.015 45);
+
+  --secondary: oklch(0.22 0.015 45);
+  --secondary-foreground: oklch(0.90 0.008 85);
+
+  --muted: oklch(0.20 0.01 45);
+  --muted-foreground: oklch(0.60 0.01 45);
+
+  --accent: oklch(0.72 0.12 80);
+  --accent-foreground: oklch(0.14 0.015 45);
+
+  --gold-light: oklch(0.82 0.10 82);
+  --gold-dark: oklch(0.62 0.14 78);
+
+  --destructive: oklch(0.55 0.18 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.9 0.005 220);
-  --input: oklch(0.9 0.005 220);
-  --ring: oklch(0.55 0.18 220);
-  --chart-1: oklch(0.55 0.18 220);
-  --chart-2: oklch(0.7 0.15 180);
-  --chart-3: oklch(0.5 0.2 300);
-  --chart-4: oklch(0.75 0.18 80);
-  --chart-5: oklch(0.65 0.22 30);
-  --sidebar: oklch(0.99 0 0);
-  --sidebar-foreground: oklch(0.15 0.01 250);
-  --sidebar-primary: oklch(0.55 0.18 220);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.2 0.02 250);
-  --sidebar-border: oklch(0.9 0.005 220);
-  --sidebar-ring: oklch(0.4 0 0);
+
+  --border: oklch(0.25 0.01 45);
+  --input: oklch(0.22 0.01 45);
+  --ring: oklch(0.72 0.12 80);
+
+  --chart-1: oklch(0.72 0.12 80);
+  --chart-2: oklch(0.65 0.08 45);
+  --chart-3: oklch(0.55 0.06 180);
+  --chart-4: oklch(0.75 0.10 60);
+  --chart-5: oklch(0.55 0.12 25);
+
+  --sidebar: oklch(0.12 0.015 45);
+  --sidebar-foreground: oklch(0.95 0.008 85);
+  --sidebar-primary: oklch(0.72 0.12 80);
+  --sidebar-primary-foreground: oklch(0.14 0.015 45);
+  --sidebar-accent: oklch(0.20 0.01 45);
+  --sidebar-accent-foreground: oklch(0.95 0.008 85);
+  --sidebar-border: oklch(0.22 0.01 45);
+  --sidebar-ring: oklch(0.72 0.12 80);
 }
 
 @theme inline {
   --font-sans: "Inter", "system-ui", "sans-serif";
+  --font-serif: "Cormorant Garamond", "Georgia", "serif";
   --font-mono: "Geist Mono", "Geist Mono Fallback";
+
+  /* Gold color variants for gradients */
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -123,4 +169,142 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ================================================
+   LUXURY DESIGN SYSTEM
+   ================================================ */
+
+/* Luxury Typography Utilities */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.heading-luxury {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.heading-luxury-light {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.text-elegant {
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+}
+
+.text-label-luxury {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Luxury Transitions & Animations */
+.transition-luxury {
+  transition-property: transform, box-shadow, opacity, background-color, border-color, color;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift {
+  transition-property: transform, box-shadow, opacity, background-color, border-color, color;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px oklch(0.18 0.015 45 / 0.12);
+}
+
+.hover-glow {
+  transition-property: transform, box-shadow, opacity, background-color, border-color, color;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 8px 24px -4px oklch(0.72 0.12 80 / 0.25);
+}
+
+/* Image hover effect */
+.image-luxury {
+  transition-property: transform;
+  transition-duration: 700ms;
+  transition-timing-function: ease-out;
+}
+
+.image-luxury:hover {
+  transform: scale(1.05);
+}
+
+/* Gold underline animation */
+.underline-luxury {
+  position: relative;
+}
+
+.underline-luxury::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: oklch(0.72 0.12 80);
+  transform: scaleX(0);
+  transition: transform 300ms ease-out;
+  transform-origin: left;
+}
+
+.underline-luxury:hover::after {
+  transform: scaleX(1);
+}
+
+/* Decorative Elements */
+.luxury-divider {
+  width: 4rem;
+  height: 1px;
+  background: linear-gradient(to right, transparent, oklch(0.72 0.12 80), transparent);
+  margin-inline: auto;
+}
+
+.luxury-divider-vertical {
+  width: 1px;
+  height: 4rem;
+  background: linear-gradient(to bottom, transparent, oklch(0.72 0.12 80), transparent);
+}
+
+/* Gold accent line for cards */
+.accent-line-top {
+  position: relative;
+}
+
+.accent-line-top::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, oklch(0.72 0.12 80 / 0.5), transparent);
+}
+
+/* Elegant overlay for images */
+.overlay-luxury {
+  background: linear-gradient(to top, oklch(0.18 0.015 45 / 0.8), oklch(0.18 0.015 45 / 0.2), transparent);
+}
+
+/* Gold gradient background */
+.bg-gold-gradient {
+  background: linear-gradient(135deg, oklch(0.62 0.14 78), oklch(0.72 0.12 80), oklch(0.82 0.10 82));
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
 }

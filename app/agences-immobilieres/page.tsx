@@ -26,6 +26,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { FadeIn } from "@/components/animations"
+import { StatCard } from "@/components/animations/counter"
 
 export default function AgencesPage() {
   return (
@@ -37,48 +39,62 @@ export default function AgencesPage() {
         <section className="relative pt-32 pb-24 px-6 lg:px-8 bg-gradient-to-br from-background via-background to-accent/5">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight text-balance">
-                Le CMS n°1 des agences immobilières
-                <br />
-                <span className="text-accent">à Saint-Barthélemy</span>
-              </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed font-light">
-                <strong className="font-semibold text-foreground">Logiciel immobilier</strong> ·{" "}
-                <strong className="font-semibold text-foreground">Conception de site internet</strong> ·{" "}
-                <strong className="font-semibold text-foreground">Outils & services métier</strong>
-              </p>
+              <FadeIn>
+                <h1 className="text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight text-balance font-serif">
+                  Le CMS n°1 des agences immobilières
+                  <br />
+                  <span className="text-accent">à Saint-Barthélemy</span>
+                </h1>
+              </FadeIn>
+              <FadeIn delay={100}>
+                <p className="text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed font-light">
+                  <strong className="font-semibold text-foreground">Logiciel immobilier</strong> ·{" "}
+                  <strong className="font-semibold text-foreground">Conception de site internet</strong> ·{" "}
+                  <strong className="font-semibold text-foreground">Outils & services métier</strong>
+                </p>
+              </FadeIn>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                <Button
-                  size="lg"
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold text-lg px-8 py-6"
-                >
-                  Demander une démo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button size="lg" variant="outline" className="font-semibold text-lg px-8 py-6 bg-transparent">
-                  Télécharger la brochure
-                </Button>
-              </div>
+              <FadeIn delay={200}>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                  <Button
+                    size="lg"
+                    className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold text-lg px-8 py-6"
+                    asChild
+                  >
+                    <Link href="/contact">
+                      Demander une démo
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                  <Button size="lg" variant="outline" className="font-semibold text-lg px-8 py-6 bg-transparent">
+                    Télécharger la brochure
+                  </Button>
+                </div>
+              </FadeIn>
 
               {/* Stats - Style La Boîte Immo */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-                <div className="bg-card border-2 border-border rounded-xl p-6 hover:border-accent transition-colors">
-                  <div className="text-4xl lg:text-5xl font-bold text-accent mb-2">21</div>
-                  <div className="text-sm text-muted-foreground font-medium">jours pour lancer</div>
-                </div>
-                <div className="bg-card border-2 border-border rounded-xl p-6 hover:border-accent transition-colors">
-                  <div className="text-4xl lg:text-5xl font-bold text-accent mb-2">10+</div>
-                  <div className="text-sm text-muted-foreground font-medium">agences équipées</div>
-                </div>
-                <div className="bg-card border-2 border-border rounded-xl p-6 hover:border-accent transition-colors">
-                  <div className="text-4xl lg:text-5xl font-bold text-accent mb-2">100%</div>
-                  <div className="text-sm text-muted-foreground font-medium">personnalisable</div>
-                </div>
-                <div className="bg-card border-2 border-border rounded-xl p-6 hover:border-accent transition-colors">
-                  <div className="text-4xl lg:text-5xl font-bold text-accent mb-2">IA</div>
-                  <div className="text-sm text-muted-foreground font-medium">embarquée</div>
-                </div>
+                <FadeIn delay={300}>
+                  <div className="bg-card border-2 border-border rounded-xl p-6 hover:border-accent transition-colors hover-lift h-full">
+                    <StatCard value={21} label="jours pour lancer" valueClassName="text-accent" />
+                  </div>
+                </FadeIn>
+                <FadeIn delay={400}>
+                  <div className="bg-card border-2 border-border rounded-xl p-6 hover:border-accent transition-colors hover-lift h-full">
+                    <StatCard value={10} suffix="+" label="agences équipées" valueClassName="text-accent" />
+                  </div>
+                </FadeIn>
+                <FadeIn delay={500}>
+                  <div className="bg-card border-2 border-border rounded-xl p-6 hover:border-accent transition-colors hover-lift h-full">
+                    <StatCard value={100} suffix="%" label="personnalisable" valueClassName="text-accent" />
+                  </div>
+                </FadeIn>
+                <FadeIn delay={600}>
+                  <div className="bg-card border-2 border-border rounded-xl p-6 hover:border-accent transition-colors hover-lift h-full">
+                    <div className="font-serif text-4xl lg:text-5xl font-medium mb-2 text-accent">IA</div>
+                    <div className="text-sm text-muted-foreground">embarquée</div>
+                  </div>
+                </FadeIn>
               </div>
             </div>
           </div>
@@ -88,45 +104,49 @@ export default function AgencesPage() {
         <section className="py-20 px-6 lg:px-8 bg-accent/5">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full mb-6">
-                  <Rocket className="h-4 w-4 text-accent" />
-                  <span className="text-sm font-medium text-accent">logiciel immo</span>
+              <FadeIn direction="left">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full mb-6">
+                    <Rocket className="h-4 w-4 text-accent" />
+                    <span className="text-sm font-medium text-accent">logiciel immo</span>
+                  </div>
+                  <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight leading-tight font-serif">
+                    Un site immobilier aussi puissant qu'une plateforme sur-mesure,{" "}
+                    <span className="text-accent">prêt en 21 jours</span>
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                    Créer un site immobilier performant à Saint-Barthélemy est aujourd'hui un véritable défi. Entre la
+                    complexité des tarifs, la gestion des saisons, les OTAs, le référencement, la performance et le design
+                    haut de gamme attendu par une clientèle internationale, les projets prennent souvent des mois — pour
+                    un résultat parfois décevant.
+                  </p>
+                  <p className="text-lg font-semibold mb-8">Nous avons fait un autre choix.</p>
+                  <Button size="lg" className="bg-accent hover:bg-accent/90">
+                    Découvrir la solution
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
                 </div>
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight leading-tight">
-                  Un site immobilier aussi puissant qu'une plateforme sur-mesure,{" "}
-                  <span className="text-accent">prêt en 21 jours</span>
-                </h2>
-                <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                  Créer un site immobilier performant à Saint-Barthélemy est aujourd'hui un véritable défi. Entre la
-                  complexité des tarifs, la gestion des saisons, les OTAs, le référencement, la performance et le design
-                  haut de gamme attendu par une clientèle internationale, les projets prennent souvent des mois — pour
-                  un résultat parfois décevant.
-                </p>
-                <p className="text-lg font-semibold mb-8">Nous avons fait un autre choix.</p>
-                <Button size="lg" className="bg-accent hover:bg-accent/90">
-                  Découvrir la solution
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-              <div className="relative">
-                <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl p-8 flex items-center justify-center">
-                  <div className="grid grid-cols-2 gap-4 w-full">
-                    <div className="bg-background rounded-lg p-4 shadow-lg">
-                      <div className="text-2xl font-bold text-accent mb-1">appli mobile</div>
-                      <div className="text-sm text-muted-foreground">Gérez partout</div>
-                    </div>
-                    <div className="bg-background rounded-lg p-4 shadow-lg">
-                      <div className="text-2xl font-bold text-accent mb-1">gestion agence</div>
-                      <div className="text-sm text-muted-foreground">Tout centralisé</div>
-                    </div>
-                    <div className="bg-background rounded-lg p-4 shadow-lg col-span-2">
-                      <div className="text-2xl font-bold text-accent mb-1">IA embarquée</div>
-                      <div className="text-sm text-muted-foreground">Rédaction automatique</div>
+              </FadeIn>
+              <FadeIn direction="right" delay={200}>
+                <div className="relative">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl p-8 flex items-center justify-center">
+                    <div className="grid grid-cols-2 gap-4 w-full">
+                      <div className="bg-background rounded-lg p-4 shadow-lg hover-lift">
+                        <div className="text-2xl font-bold text-accent mb-1">appli mobile</div>
+                        <div className="text-sm text-muted-foreground">Gérez partout</div>
+                      </div>
+                      <div className="bg-background rounded-lg p-4 shadow-lg hover-lift">
+                        <div className="text-2xl font-bold text-accent mb-1">gestion agence</div>
+                        <div className="text-sm text-muted-foreground">Tout centralisé</div>
+                      </div>
+                      <div className="bg-background rounded-lg p-4 shadow-lg col-span-2 hover-lift">
+                        <div className="text-2xl font-bold text-accent mb-1">IA embarquée</div>
+                        <div className="text-sm text-muted-foreground">Rédaction automatique</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </FadeIn>
             </div>
           </div>
         </section>
@@ -134,14 +154,16 @@ export default function AgencesPage() {
         {/* Features Grid - Style La Boîte Immo */}
         <section className="py-20 px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
-                Ce qui change concrètement pour votre agence
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Une plateforme complète qui répond à tous vos besoins métier
-              </p>
-            </div>
+            <FadeIn>
+              <div className="text-center mb-16">
+                <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight font-serif">
+                  Ce qui change concrètement pour votre agence
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Une plateforme complète qui répond à tous vos besoins métier
+                </p>
+              </div>
+            </FadeIn>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Feature 1 */}
@@ -945,16 +967,19 @@ export default function AgencesPage() {
               Prêt à transformer votre présence en ligne et doubler vos demandes de réservation ?
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="font-semibold text-lg px-8 py-6">
-                Demander une démo
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" variant="secondary" className="font-semibold text-lg px-8 py-6" asChild>
+                <Link href="/contact">
+                  Demander une démo
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="bg-transparent border-2 border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10 font-semibold text-lg px-8 py-6"
+                asChild
               >
-                Appeler maintenant
+                <Link href="/contact">Nous contacter</Link>
               </Button>
             </div>
           </div>

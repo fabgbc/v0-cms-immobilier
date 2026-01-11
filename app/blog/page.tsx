@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Calendar, Clock } from "lucide-react"
 import Link from "next/link"
+import { FadeIn } from "@/components/animations"
 
 export default function BlogPage() {
   return (
@@ -13,13 +14,17 @@ export default function BlogPage() {
         <section className="py-24 bg-gradient-to-b from-background to-muted/20">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Obtenez plus de réservations
-              </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Stratégies, conseils et bonnes pratiques pour maximiser la visibilité de vos villas et augmenter vos
-                réservations directes.
-              </p>
+              <FadeIn>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 font-serif">
+                  Obtenez plus de réservations
+                </h1>
+              </FadeIn>
+              <FadeIn delay={100}>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Stratégies, conseils et bonnes pratiques pour maximiser la visibilité de vos villas et augmenter vos
+                  réservations directes.
+                </p>
+              </FadeIn>
             </div>
           </div>
         </section>

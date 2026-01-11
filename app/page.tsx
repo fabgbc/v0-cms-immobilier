@@ -1,6 +1,7 @@
 "use client"
 
 import { ArrowRight, Check, Shield, Zap, Globe, Lock, Building2, Home, TrendingUp, X } from "lucide-react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -8,6 +9,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { HomeHeroOfferSlider } from "@/components/home-hero-offer-slider"
 import { useLanguage } from "@/lib/language-context"
+import { FadeIn, StaggerChildren, ParallaxImage, StatCard } from "@/components/animations"
 import React from "react"
 
 export default function HomePage() {
@@ -170,162 +172,163 @@ export default function HomePage() {
         <HomeHeroOfferSlider />
 
         {/* Section Deux profils, un même objectif */}
-        <section className="py-24 px-6 lg:px-8 bg-muted/30">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <Badge className="mb-4 rounded-full px-4 py-2">{content.hero.badge}</Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">{content.hero.title}</h2>
+        <section className="py-28 px-6 lg:px-8 bg-muted/30">
+          <div className="max-w-6xl mx-auto">
+            <FadeIn className="text-center mb-20">
+              <Badge variant="luxury" className="mb-6">{content.hero.badge}</Badge>
+              <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight">{content.hero.title}</h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{content.hero.subtitle}</p>
-            </div>
+            </FadeIn>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="border-2 hover:border-accent/50 transition-all hover:shadow-xl rounded-[1.5rem] overflow-hidden">
-                <div className="relative h-64 w-full overflow-hidden">
-                  <img
+            <div className="grid md:grid-cols-2 gap-10">
+              <FadeIn direction="left" delay={100}>
+                <Card className="border border-border/50 hover:border-accent/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 rounded-sm overflow-hidden hover-lift">
+                  <ParallaxImage
                     src="/villa-owner-looking-at-website-on-laptop-in-luxur.jpg"
                     alt="Propriétaire dans sa villa consultant son site web"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                  <div className="absolute bottom-6 left-6 flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/95 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                      <Home className="h-6 w-6 text-accent" />
+                    containerClassName="h-72"
+                    speed={0.2}
+                  >
+                    <div className="absolute bottom-6 left-6 flex items-center gap-4 z-10">
+                      <div className="w-12 h-12 bg-white/95 flex items-center justify-center backdrop-blur-sm">
+                        <Home className="h-6 w-6 text-accent" />
+                      </div>
+                      <h3 className="text-2xl font-serif font-medium text-white">{content.owners.title}</h3>
                     </div>
-                    <h3 className="text-2xl font-bold text-white">{content.owners.title}</h3>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <p className="text-muted-foreground mb-5 leading-relaxed text-sm">{content.owners.desc}</p>
-                  <ul className="space-y-2.5 mb-5">
-                    {content.owners.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2.5">
-                        <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                        <span className="text-sm leading-snug">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="w-full bg-accent hover:bg-accent/90 rounded-xl h-11" size="lg">
-                    {content.owners.cta}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
+                  </ParallaxImage>
+                  <CardContent className="p-8">
+                    <p className="text-muted-foreground mb-6 leading-relaxed">{content.owners.desc}</p>
+                    <ul className="space-y-3 mb-6">
+                      {content.owners.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+                          <span className="text-sm leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button variant="luxury" className="w-full" size="lg">
+                      {content.owners.cta}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </FadeIn>
 
-              <Card className="border-2 hover:border-accent/50 transition-all hover:shadow-xl rounded-[1.5rem] overflow-hidden">
-                <div className="relative h-64 w-full overflow-hidden">
-                  <img
+              <FadeIn direction="right" delay={200}>
+                <Card className="border border-border/50 hover:border-accent/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 rounded-sm overflow-hidden hover-lift">
+                  <ParallaxImage
                     src="/modern-luxury-real-estate-office-in-saint-barthele.jpg"
                     alt="Bureau d'agence immobilière à Saint-Barthélemy"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                  <div className="absolute bottom-6 left-6 flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/95 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                      <Building2 className="h-6 w-6 text-accent" />
+                    containerClassName="h-72"
+                    speed={0.2}
+                  >
+                    <div className="absolute bottom-6 left-6 flex items-center gap-4 z-10">
+                      <div className="w-12 h-12 bg-white/95 flex items-center justify-center backdrop-blur-sm">
+                        <Building2 className="h-6 w-6 text-accent" />
+                      </div>
+                      <h3 className="text-2xl font-serif font-medium text-white">{content.agencies.title}</h3>
                     </div>
-                    <h3 className="text-2xl font-bold text-white">{content.agencies.title}</h3>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <p className="text-muted-foreground mb-5 leading-relaxed text-sm">{content.agencies.desc}</p>
-                  <ul className="space-y-2.5 mb-5">
-                    {content.agencies.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2.5">
-                        <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                        <span className="text-sm leading-snug">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="w-full bg-accent hover:bg-accent/90 rounded-xl h-11" size="lg">
-                    {content.agencies.cta}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
+                  </ParallaxImage>
+                  <CardContent className="p-8">
+                    <p className="text-muted-foreground mb-6 leading-relaxed">{content.agencies.desc}</p>
+                    <ul className="space-y-3 mb-6">
+                      {content.agencies.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+                          <span className="text-sm leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button variant="luxury" className="w-full" size="lg">
+                      {content.agencies.cta}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </FadeIn>
             </div>
           </div>
         </section>
 
         {/* Section Sécurité & Performance */}
-        <section className="py-24 px-6 lg:px-8 bg-background">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <Badge className="mb-4 rounded-full px-4 py-2">{content.security.badge}</Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">{content.security.title}</h2>
+        <section className="py-28 px-6 lg:px-8 bg-background">
+          <div className="max-w-6xl mx-auto">
+            <FadeIn className="text-center mb-20">
+              <Badge variant="luxury" className="mb-6">{content.security.badge}</Badge>
+              <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight">{content.security.title}</h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 {content.security.subtitle}
               </p>
-            </div>
+            </FadeIn>
 
             <div className="grid md:grid-cols-3 gap-8">
               {content.security.cards.map((card, i) => (
-                <Card
-                  key={i}
-                  className="border-2 rounded-[1.5rem] hover:border-accent/50 transition-all hover:shadow-lg"
-                >
-                  <CardContent className="p-8">
-                    <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-5">
-                      {i === 0 && <Shield className="h-6 w-6 text-accent" />}
-                      {i === 1 && <Zap className="h-6 w-6 text-accent" />}
-                      {i === 2 && <TrendingUp className="h-6 w-6 text-accent" />}
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">{card.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{card.desc}</p>
-                  </CardContent>
-                </Card>
+                <FadeIn key={i} delay={i * 150}>
+                  <Card className="border border-border/50 rounded-sm hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover-lift h-full">
+                    <CardContent className="p-8">
+                      <div className="w-12 h-12 bg-accent/10 flex items-center justify-center mb-6">
+                        {i === 0 && <Shield className="h-6 w-6 text-accent" />}
+                        {i === 1 && <Zap className="h-6 w-6 text-accent" />}
+                        {i === 2 && <TrendingUp className="h-6 w-6 text-accent" />}
+                      </div>
+                      <h3 className="text-xl font-serif font-medium mb-3">{card.title}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{card.desc}</p>
+                    </CardContent>
+                  </Card>
+                </FadeIn>
               ))}
             </div>
           </div>
         </section>
 
         {/* Section Ce que vous aurez */}
-        <section className="py-24 px-6 lg:px-8 bg-muted/30">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <Badge className="mb-4 rounded-full px-4 py-2">{content.features.badge}</Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">{content.features.title}</h2>
+        <section className="py-28 px-6 lg:px-8 bg-muted/30">
+          <div className="max-w-6xl mx-auto">
+            <FadeIn className="text-center mb-20">
+              <Badge variant="luxury" className="mb-6">{content.features.badge}</Badge>
+              <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight">{content.features.title}</h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 {content.features.subtitle}
               </p>
-            </div>
+            </FadeIn>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {content.features.list.map((feature, i) => (
-                <div
-                  key={i}
-                  className="bg-white border-2 border-border rounded-[1.5rem] p-8 hover:border-accent/50 transition-all hover:shadow-lg"
-                >
-                  <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-5">
-                    {[Globe, Shield, Zap, Check, Lock, Globe, Zap, Shield][i] &&
-                      React.createElement([Globe, Shield, Zap, Check, Lock, Globe, Zap, Shield][i], {
-                        className: "h-6 w-6 text-accent",
-                      })}
+                <FadeIn key={i} delay={i * 100}>
+                  <div className="bg-card border border-border/50 rounded-sm p-8 hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover-lift h-full">
+                    <div className="w-12 h-12 bg-accent/10 flex items-center justify-center mb-6">
+                      {[Globe, Shield, Zap, Check, Lock, Globe, Zap, Shield][i] &&
+                        React.createElement([Globe, Shield, Zap, Check, Lock, Globe, Zap, Shield][i], {
+                          className: "h-6 w-6 text-accent",
+                        })}
+                    </div>
+                    <h3 className="font-serif font-medium mb-2 text-lg">{feature.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
                   </div>
-                  <h3 className="font-bold mb-2 text-lg">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
-                </div>
+                </FadeIn>
               ))}
             </div>
           </div>
         </section>
 
         {/* Section Avant / Après */}
-        <section className="py-24 px-6 lg:px-8 bg-background">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight">{content.beforeAfter.title}</h2>
+        <section className="py-28 px-6 lg:px-8 bg-background">
+          <div className="max-w-6xl mx-auto">
+            <FadeIn className="text-center mb-20">
+              <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight">{content.beforeAfter.title}</h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{content.beforeAfter.subtitle}</p>
-            </div>
+              <div className="luxury-divider mt-8" />
+            </FadeIn>
 
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Colonne AVANT */}
-              <div>
-                <div className="bg-destructive/5 border-2 border-destructive/20 rounded-[1.5rem] p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-destructive/10 rounded-xl flex items-center justify-center">
+              <FadeIn direction="left" delay={100}>
+                <div className="bg-destructive/5 border border-destructive/20 rounded-sm p-8">
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="w-10 h-10 bg-destructive/10 flex items-center justify-center">
                       <X className="h-5 w-5 text-destructive" />
                     </div>
-                    <h3 className="text-2xl font-bold">AVANT</h3>
+                    <h3 className="text-2xl font-serif font-medium">AVANT</h3>
                   </div>
 
                   <div className="space-y-6">
@@ -402,16 +405,16 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </FadeIn>
 
               {/* Colonne APRÈS */}
-              <div>
-                <div className="bg-accent/5 border-2 border-accent/30 rounded-[1.5rem] p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center">
+              <FadeIn direction="right" delay={200}>
+                <div className="bg-accent/5 border border-accent/30 rounded-sm p-8 accent-line-top">
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="w-10 h-10 bg-accent/10 flex items-center justify-center">
                       <Check className="h-5 w-5 text-accent" />
                     </div>
-                    <h3 className="text-2xl font-bold">APRÈS</h3>
+                    <h3 className="text-2xl font-serif font-medium">APRÈS</h3>
                   </div>
 
                   <div className="space-y-6">
@@ -549,32 +552,37 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className="mt-8 p-6 bg-accent/10 border-2 border-accent/30 rounded-2xl">
-                    <p className="text-sm font-semibold text-center">
-                      💡 Résultat : vous gagnez du temps, générez plus de réservations, et offrez une expérience client
+                  <div className="mt-8 p-6 bg-accent/10 border border-accent/30 rounded-sm">
+                    <p className="text-sm font-medium text-center">
+                      Résultat : vous gagnez du temps, générez plus de réservations, et offrez une expérience client
                       premium digne de Saint-Barth
                     </p>
                   </div>
                 </div>
-              </div>
+              </FadeIn>
             </div>
           </div>
         </section>
 
         {/* CTA final */}
-        <section className="py-32 px-6 lg:px-8 relative overflow-hidden bg-accent text-white">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none" />
-          <div className="max-w-4xl mx-auto text-center relative">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">{content.cta.title}</h2>
-            <p className="text-xl mb-8 text-white/90">{content.cta.subtitle}</p>
+        <section className="py-32 px-6 lg:px-8 relative overflow-hidden bg-primary text-primary-foreground">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,var(--accent)_0%,transparent_50%)] opacity-10" />
+          <FadeIn className="max-w-4xl mx-auto text-center relative">
+            <div className="luxury-divider mb-8" />
+            <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight">{content.cta.title}</h2>
+            <p className="text-xl mb-10 text-primary-foreground/80">{content.cta.subtitle}</p>
             <Button
-              size="lg"
-              className="bg-white text-accent hover:bg-white/90 rounded-xl h-12 px-8 text-lg font-semibold"
+              size="xl"
+              variant="luxury"
+              className="text-lg"
+              asChild
             >
-              {content.cta.button}
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Link href="/contact">
+                {content.cta.button}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
-          </div>
+          </FadeIn>
         </section>
       </main>
 

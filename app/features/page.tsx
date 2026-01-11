@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { FadeIn } from "@/components/animations"
 
 export default function FeaturesPage() {
   return (
@@ -28,21 +29,27 @@ export default function FeaturesPage() {
         <section className="pt-32 pb-20 px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1] text-balance">
-                Fonctionnalités du CMS
-              </h1>
-              <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
-                Tout ce qu'il faut pour un site premium + une gestion simple, déjà intégré.
-              </p>
-              <div className="max-w-3xl mx-auto bg-accent/5 border border-accent/20 rounded-2xl p-8 mt-12">
-                <h2 className="text-2xl font-bold mb-4">
-                  Un CMS qui vous fait gagner 15h par semaine et 40% de demandes en plus
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Chaque fonctionnalité a été pensée pour réduire votre charge de travail tout en maximisant vos
-                  conversions. Découvrez comment chaque élément transforme concrètement votre activité.
+              <FadeIn>
+                <h1 className="text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1] text-balance font-serif">
+                  Fonctionnalités du CMS
+                </h1>
+              </FadeIn>
+              <FadeIn delay={100}>
+                <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
+                  Tout ce qu'il faut pour un site premium + une gestion simple, déjà intégré.
                 </p>
-              </div>
+              </FadeIn>
+              <FadeIn delay={200}>
+                <div className="max-w-3xl mx-auto bg-accent/5 border border-accent/20 rounded-2xl p-8 mt-12">
+                  <h2 className="text-2xl font-bold mb-4">
+                    Un CMS qui vous fait gagner 15h par semaine et 40% de demandes en plus
+                  </h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Chaque fonctionnalité a été pensée pour réduire votre charge de travail tout en maximisant vos
+                    conversions. Découvrez comment chaque élément transforme concrètement votre activité.
+                  </p>
+                </div>
+              </FadeIn>
             </div>
           </div>
         </section>
@@ -50,12 +57,14 @@ export default function FeaturesPage() {
         {/* Fonctionnalités principales */}
         <section className="py-20 px-6 lg:px-8 border-t border-border">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-4xl mx-auto text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight">Nos principales fonctionnalités</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Des fonctionnalités puissantes et intuitives pour gérer votre activité immobilière efficacement.
-              </p>
-            </div>
+            <FadeIn>
+              <div className="max-w-4xl mx-auto text-center mb-16">
+                <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight font-serif">Nos principales fonctionnalités</h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Des fonctionnalités puissantes et intuitives pour gérer votre activité immobilière efficacement.
+                </p>
+              </div>
+            </FadeIn>
 
             <Accordion type="single" collapsible className="w-full space-y-4">
               <AccordionItem value="visibility" className="border-2 rounded-lg px-6">

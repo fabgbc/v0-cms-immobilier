@@ -83,23 +83,27 @@ export function HomeHeroOfferSlider() {
 
   return (
     <section
-      className="pt-32 pb-24 px-6 lg:px-8 relative overflow-hidden"
+      className="pt-40 pb-28 px-6 lg:px-8 relative overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent pointer-events-none" />
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,var(--accent)_0%,transparent_50%)] opacity-5" />
 
-      <div className="max-w-7xl mx-auto relative">
+      {/* Elegant decorative line */}
+      <div className="absolute top-32 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-accent/0 via-accent/50 to-accent/0" />
+
+      <div className="max-w-5xl mx-auto relative">
         <div className="max-w-4xl mx-auto">
-          <Badge variant="secondary" className="mb-6 px-4 py-1.5 mx-auto block w-fit">
+          <Badge variant="luxury" className="mb-8 mx-auto block w-fit">
             <Star className="w-3.5 h-3.5 mr-1.5 fill-accent text-accent" />
             {language === "fr"
-              ? "Utilisé par 50+ agences et propriétaires à St Barth"
-              : "Used by 50+ agencies and owners in St Barth"}
+              ? "50+ partenaires a Saint-Barth"
+              : "50+ partners in Saint-Barth"}
           </Badge>
 
           {/* Carousel Content */}
-          <div className="relative min-h-[400px]">
+          <div className="relative min-h-[420px]">
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
@@ -110,7 +114,7 @@ export function HomeHeroOfferSlider() {
                 aria-hidden={index !== currentIndex}
               >
                 <div className="text-center">
-                  <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1] text-balance">
+                  <h1 className="font-serif text-4xl lg:text-6xl xl:text-7xl font-medium tracking-tight mb-8 leading-[1.05] text-balance">
                     {slide.title[language]}
                   </h1>
 
@@ -118,14 +122,15 @@ export function HomeHeroOfferSlider() {
                     {slide.description1[language]}
                   </p>
 
-                  <p className="text-base lg:text-lg text-muted-foreground/80 mb-10 leading-relaxed max-w-3xl mx-auto">
+                  <p className="text-base lg:text-lg text-muted-foreground/70 mb-12 leading-relaxed max-w-3xl mx-auto">
                     {slide.description2[language]}
                   </p>
 
                   <Button
                     asChild
-                    size="lg"
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold text-base"
+                    size="xl"
+                    variant="luxury"
+                    className="text-base"
                   >
                     <Link href={slide.ctaLink}>
                       {slide.ctaText[language]}
@@ -137,18 +142,18 @@ export function HomeHeroOfferSlider() {
             ))}
           </div>
 
-          {/* Navigation Dots */}
-          <div className="flex items-center justify-center gap-3 mt-12" role="tablist" aria-label="Navigation slides">
+          {/* Navigation Dots - Luxury style */}
+          <div className="flex items-center justify-center gap-4 mt-12" role="tablist" aria-label="Navigation slides">
             {slides.map((slide, index) => (
               <button
                 key={slide.id}
                 onClick={() => goToSlide(index)}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm font-medium transition-all",
+                  "px-5 py-2.5 rounded-sm text-sm font-medium transition-all duration-300",
                   "hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2",
                   index === currentIndex
                     ? "bg-accent text-accent-foreground"
-                    : "bg-muted text-muted-foreground hover:text-foreground",
+                    : "bg-secondary text-muted-foreground hover:text-foreground",
                 )}
                 role="tab"
                 aria-selected={index === currentIndex}
