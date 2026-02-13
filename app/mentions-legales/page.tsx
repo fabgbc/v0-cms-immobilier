@@ -21,7 +21,7 @@ export default function MentionsLegalesPage() {
               Saint-Barth Villas<br />
               Gustavia, 97133 Saint-Barthélemy<br />
               Antilles françaises<br />
-              Email : contact@saintbarth-villas.com<br />
+              Email : contact@pandhiweb.com<br />
               Téléphone : +590 590 27 88 88
             </p>
 

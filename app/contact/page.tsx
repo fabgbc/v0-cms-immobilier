@@ -245,7 +245,7 @@ export default function ContactPage() {
 
                         {submitError && (
                           <p className="text-sm text-destructive text-center bg-destructive/10 py-3 px-4 rounded-lg">
-                            Une erreur est survenue. Veuillez réessayer ou nous contacter directement à contact@saintbarth-villas.com
+                            Une erreur est survenue. Veuillez réessayer ou nous contacter directement à contact@pandhiweb.com
                           </p>
                         )}
 
@@ -271,8 +271,8 @@ export default function ContactPage() {
                           </div>
                           <div>
                             <div className="font-medium">Email</div>
-                            <a href="mailto:contact@saintbarth-villas.com" className="text-muted-foreground hover:text-accent transition-colors">
-                              contact@saintbarth-villas.com
+                            <a href="mailto:contact@pandhiweb.com" className="text-muted-foreground hover:text-accent transition-colors">
+                              contact@pandhiweb.com
                             </a>
                           </div>
                         </div>

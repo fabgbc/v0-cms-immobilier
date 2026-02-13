@@ -21,7 +21,7 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
         // Luxury gold button with gradient
         luxury:
-          'bg-gradient-to-r from-gold-dark via-accent to-gold-light text-accent-foreground font-medium hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-0.5',
+          'bg-gradient-to-r from-accent via-gold-light to-accent text-white font-medium hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-0.5',
         // Elegant outline with gold accent
         'outline-luxury':
           'border-2 border-accent bg-transparent text-accent hover:bg-accent hover:text-accent-foreground',

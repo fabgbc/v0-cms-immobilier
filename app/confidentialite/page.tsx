@@ -52,7 +52,7 @@ export default function ConfidentialitePage() {
               <li>Droit d&apos;opposition au traitement</li>
             </ul>
             <p className="text-muted-foreground leading-relaxed mt-4">
-              Pour exercer ces droits, contactez-nous à : contact@saintbarth-villas.com
+              Pour exercer ces droits, contactez-nous à : contact@pandhiweb.com
             </p>
 
             <h2 className="font-serif text-xl font-medium mt-10 mb-4">Cookies</h2>
@@ -64,7 +64,7 @@ export default function ConfidentialitePage() {
             <h2 className="font-serif text-xl font-medium mt-10 mb-4">Contact</h2>
             <p className="text-muted-foreground leading-relaxed">
               Pour toute question relative à la protection de vos données, contactez-nous :<br />
-              Email : contact@saintbarth-villas.com<br />
+              Email : contact@pandhiweb.com<br />
               Adresse : Gustavia, 97133 Saint-Barthélemy, Antilles françaises
             </p>
           </div>

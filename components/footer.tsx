@@ -144,10 +144,10 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:contact@saintbarth-villas.com"
+                  href="mailto:contact@pandhiweb.com"
                   className="text-sm text-primary-foreground/70 hover:text-accent transition-colors"
                 >
-                  contact@saintbarth-villas.com
+                  contact@pandhiweb.com
                 </a>
               </li>
               <li>
