@@ -1,7 +1,8 @@
 "use client"
 
-import { ArrowRight, Check, Shield, Zap, Globe, Lock, Building2, Home, TrendingUp, X } from "lucide-react"
+import { ArrowRight, Check, Shield, Zap, Globe, Lock, Building2, Home, TrendingUp, Play, Sparkles } from "lucide-react"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -9,8 +10,16 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { HomeHeroOfferSlider } from "@/components/home-hero-offer-slider"
 import { useLanguage } from "@/lib/language-context"
-import { FadeIn, StaggerChildren, ParallaxImage, StatCard } from "@/components/animations"
+import { FadeIn, StaggerChildren, ParallaxImage, TextReveal } from "@/components/animations"
+import { MagneticButton } from "@/components/motion-button"
+import { PricingSection } from "@/components/pricing-section"
+import { BeforeAfterSlider } from "@/components/before-after-slider"
+import { TestimonialsCarousel } from "@/components/testimonials-carousel"
+import { AnimatedCounter } from "@/components/animations/counter"
+import { staggerContainer, fadeInUp, scaleBlurIn } from "@/lib/motion-variants"
 import React from "react"
+
+const featureIcons = [Globe, Shield, Zap, Check, Lock, Globe, Zap, Shield]
 
 export default function HomePage() {
   const { language } = useLanguage()
@@ -44,6 +53,12 @@ export default function HomePage() {
         ],
         cta: "En savoir plus",
       },
+      stats: [
+        { value: 50, suffix: "+", label: "Partenaires" },
+        { value: 98, suffix: "%", label: "Satisfaction" },
+        { value: 7, suffix: "j", label: "Mise en ligne" },
+        { value: 40, suffix: "%", label: "Plus de réservations" },
+      ],
       security: {
         badge: "Technologie de pointe",
         title: "Sécurité & Performance",
@@ -63,6 +78,12 @@ export default function HomePage() {
           },
         ],
       },
+      demo: {
+        badge: "Démo interactive",
+        title: "Voyez le CMS en action",
+        subtitle: "Testez notre interface d'administration et observez le résultat en temps réel",
+        cta: "Essayer la démo interactive",
+      },
       features: {
         badge: "Fonctionnalités complètes",
         title: "Ce que vous aurez",
@@ -78,13 +99,9 @@ export default function HomePage() {
           { title: "Maintenance incluse", desc: "Mises à jour et support" },
         ],
       },
-      beforeAfter: {
-        title: "Avant / Après notre CMS",
-        subtitle: "Découvrez comment nous transformons la gestion immobilière de luxe",
-      },
       cta: {
         title: "Prêt à transformer votre activité ?",
-        subtitle: "Join the professionals who trust us in Saint-Barthélemy",
+        subtitle: "Rejoignez les professionnels qui nous font confiance à Saint-Barthélemy",
         button: "Demander une démo",
       },
     },
@@ -116,6 +133,12 @@ export default function HomePage() {
         ],
         cta: "Learn more",
       },
+      stats: [
+        { value: 50, suffix: "+", label: "Partners" },
+        { value: 98, suffix: "%", label: "Satisfaction" },
+        { value: 7, suffix: "d", label: "Go-live" },
+        { value: 40, suffix: "%", label: "More bookings" },
+      ],
       security: {
         badge: "Cutting-edge technology",
         title: "Security & Performance",
@@ -135,6 +158,12 @@ export default function HomePage() {
           },
         ],
       },
+      demo: {
+        badge: "Interactive Demo",
+        title: "See the CMS in action",
+        subtitle: "Test our admin interface and see the result in real time",
+        cta: "Try the interactive demo",
+      },
       features: {
         badge: "Complete features",
         title: "What you'll get",
@@ -149,10 +178,6 @@ export default function HomePage() {
           { title: "AI assistance", desc: "Optimized content writing" },
           { title: "Maintenance included", desc: "Updates and support" },
         ],
-      },
-      beforeAfter: {
-        title: "Before / After our CMS",
-        subtitle: "Discover how we transform luxury real estate management",
       },
       cta: {
         title: "Ready to transform your business?",
@@ -169,20 +194,54 @@ export default function HomePage() {
       <Navigation />
 
       <main id="main-content" className="min-h-screen">
+        {/* 1. Hero Slider */}
         <HomeHeroOfferSlider />
 
-        {/* Section Deux profils, un même objectif */}
-        <section className="py-28 px-6 lg:px-8 bg-muted/30">
+        {/* Stats band — animated counters */}
+        <section className="py-12 px-6 lg:px-8 bg-primary text-primary-foreground relative overflow-hidden">
+          <div className="absolute inset-0 shimmer-gold opacity-30" />
+          <motion.div
+            className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 relative"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            {content.stats.map((stat, i) => (
+              <motion.div key={i} variants={fadeInUp} className="text-center">
+                <div className="font-serif text-4xl lg:text-5xl font-medium mb-2 text-accent">
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                </div>
+                <div className="text-sm text-primary-foreground/70 tracking-wide uppercase">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </section>
+
+        {/* 2. Deux profils, un même objectif */}
+        <section className="py-28 px-6 lg:px-8 bg-muted/30 relative">
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
           <div className="max-w-6xl mx-auto">
-            <FadeIn className="text-center mb-20">
-              <Badge variant="luxury" className="mb-6">{content.hero.badge}</Badge>
-              <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight">{content.hero.title}</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{content.hero.subtitle}</p>
-            </FadeIn>
+            <div className="text-center mb-20">
+              <FadeIn>
+                <Badge variant="luxury" className="mb-6">{content.hero.badge}</Badge>
+              </FadeIn>
+              <TextReveal
+                as="h2"
+                className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight"
+              >
+                {content.hero.title}
+              </TextReveal>
+              <FadeIn delay={300}>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{content.hero.subtitle}</p>
+              </FadeIn>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-10">
               <FadeIn direction="left" delay={100}>
-                <Card className="border border-border/50 hover:border-accent/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 rounded-sm overflow-hidden hover-lift">
+                <Card className="border border-border/50 hover:border-accent/30 transition-all duration-500 rounded-sm overflow-hidden card-glow group">
                   <ParallaxImage
                     src="/villa-owner-looking-at-website-on-laptop-in-luxur.jpg"
                     alt="Propriétaire dans sa villa consultant son site web"
@@ -190,9 +249,13 @@ export default function HomePage() {
                     speed={0.2}
                   >
                     <div className="absolute bottom-6 left-6 flex items-center gap-4 z-10">
-                      <div className="w-12 h-12 bg-white/95 flex items-center justify-center backdrop-blur-sm">
+                      <motion.div
+                        className="w-12 h-12 bg-white/95 flex items-center justify-center backdrop-blur-sm"
+                        whileHover={{ rotate: 12, scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                      >
                         <Home className="h-6 w-6 text-accent" />
-                      </div>
+                      </motion.div>
                       <h3 className="text-2xl font-serif font-medium text-white">{content.owners.title}</h3>
                     </div>
                   </ParallaxImage>
@@ -200,22 +263,39 @@ export default function HomePage() {
                     <p className="text-muted-foreground mb-6 leading-relaxed">{content.owners.desc}</p>
                     <ul className="space-y-3 mb-6">
                       {content.owners.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-3">
+                        <motion.li
+                          key={i}
+                          className="flex items-start gap-3"
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
+                        >
                           <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
                           <span className="text-sm leading-relaxed">{feature}</span>
-                        </li>
+                        </motion.li>
                       ))}
                     </ul>
-                    <Button variant="luxury" className="w-full" size="lg">
-                      {content.owners.cta}
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+                    <MagneticButton>
+                      <Button variant="luxury" className="w-full group/btn" size="lg" asChild>
+                        <Link href="/proprietaires">
+                          {content.owners.cta}
+                          <motion.span
+                            className="inline-block ml-2"
+                            initial={{ x: 0 }}
+                            whileHover={{ x: 4 }}
+                          >
+                            <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                          </motion.span>
+                        </Link>
+                      </Button>
+                    </MagneticButton>
                   </CardContent>
                 </Card>
               </FadeIn>
 
               <FadeIn direction="right" delay={200}>
-                <Card className="border border-border/50 hover:border-accent/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 rounded-sm overflow-hidden hover-lift">
+                <Card className="border border-border/50 hover:border-accent/30 transition-all duration-500 rounded-sm overflow-hidden card-glow group">
                   <ParallaxImage
                     src="/modern-luxury-real-estate-office-in-saint-barthele.jpg"
                     alt="Bureau d'agence immobilière à Saint-Barthélemy"
@@ -223,9 +303,13 @@ export default function HomePage() {
                     speed={0.2}
                   >
                     <div className="absolute bottom-6 left-6 flex items-center gap-4 z-10">
-                      <div className="w-12 h-12 bg-white/95 flex items-center justify-center backdrop-blur-sm">
+                      <motion.div
+                        className="w-12 h-12 bg-white/95 flex items-center justify-center backdrop-blur-sm"
+                        whileHover={{ rotate: -12, scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                      >
                         <Building2 className="h-6 w-6 text-accent" />
-                      </div>
+                      </motion.div>
                       <h3 className="text-2xl font-serif font-medium text-white">{content.agencies.title}</h3>
                     </div>
                   </ParallaxImage>
@@ -233,16 +317,33 @@ export default function HomePage() {
                     <p className="text-muted-foreground mb-6 leading-relaxed">{content.agencies.desc}</p>
                     <ul className="space-y-3 mb-6">
                       {content.agencies.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-3">
+                        <motion.li
+                          key={i}
+                          className="flex items-start gap-3"
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
+                        >
                           <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
                           <span className="text-sm leading-relaxed">{feature}</span>
-                        </li>
+                        </motion.li>
                       ))}
                     </ul>
-                    <Button variant="luxury" className="w-full" size="lg">
-                      {content.agencies.cta}
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+                    <MagneticButton>
+                      <Button variant="luxury" className="w-full group/btn" size="lg" asChild>
+                        <Link href="/agences-immobilieres">
+                          {content.agencies.cta}
+                          <motion.span
+                            className="inline-block ml-2"
+                            initial={{ x: 0 }}
+                            whileHover={{ x: 4 }}
+                          >
+                            <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                          </motion.span>
+                        </Link>
+                      </Button>
+                    </MagneticButton>
                   </CardContent>
                 </Card>
               </FadeIn>
@@ -250,339 +351,197 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Section Sécurité & Performance */}
-        <section className="py-28 px-6 lg:px-8 bg-background">
+        {/* 3. Sécurité & Performance */}
+        <section className="py-28 px-6 lg:px-8 bg-background relative">
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
           <div className="max-w-6xl mx-auto">
-            <FadeIn className="text-center mb-20">
-              <Badge variant="luxury" className="mb-6">{content.security.badge}</Badge>
-              <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight">{content.security.title}</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                {content.security.subtitle}
-              </p>
-            </FadeIn>
+            <div className="text-center mb-20">
+              <FadeIn>
+                <Badge variant="luxury" className="mb-6">{content.security.badge}</Badge>
+              </FadeIn>
+              <TextReveal
+                as="h2"
+                className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight"
+              >
+                {content.security.title}
+              </TextReveal>
+              <FadeIn delay={300}>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                  {content.security.subtitle}
+                </p>
+              </FadeIn>
+            </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <motion.div
+              className="grid md:grid-cols-3 gap-8"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {content.security.cards.map((card, i) => (
-                <FadeIn key={i} delay={i * 150}>
-                  <Card className="border border-border/50 rounded-sm hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover-lift h-full">
+                <motion.div key={i} variants={scaleBlurIn}>
+                  <Card className="border border-border/50 rounded-sm hover:border-accent/30 transition-all duration-500 card-glow h-full accent-line-top">
                     <CardContent className="p-8">
-                      <div className="w-12 h-12 bg-accent/10 flex items-center justify-center mb-6">
+                      <motion.div
+                        className="w-12 h-12 bg-accent/10 flex items-center justify-center mb-6"
+                        whileHover={{ rotate: 8, scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                      >
                         {i === 0 && <Shield className="h-6 w-6 text-accent" />}
                         {i === 1 && <Zap className="h-6 w-6 text-accent" />}
                         {i === 2 && <TrendingUp className="h-6 w-6 text-accent" />}
-                      </div>
+                      </motion.div>
                       <h3 className="text-xl font-serif font-medium mb-3">{card.title}</h3>
                       <p className="text-muted-foreground text-sm leading-relaxed">{card.desc}</p>
                     </CardContent>
                   </Card>
-                </FadeIn>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* Section Ce que vous aurez */}
-        <section className="py-28 px-6 lg:px-8 bg-muted/30">
-          <div className="max-w-6xl mx-auto">
-            <FadeIn className="text-center mb-20">
-              <Badge variant="luxury" className="mb-6">{content.features.badge}</Badge>
-              <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight">{content.features.title}</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                {content.features.subtitle}
-              </p>
+        {/* 4. CTA Demo */}
+        <section className="py-24 px-6 lg:px-8 relative overflow-hidden">
+          <div className="absolute inset-0 shimmer-gold" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--accent)_0%,transparent_70%)] opacity-[0.04]" />
+          <div className="max-w-4xl mx-auto relative">
+            <FadeIn className="text-center">
+              <Badge variant="luxury" className="mb-6">
+                <Play className="w-3.5 h-3.5 mr-1.5 fill-accent text-accent" />
+                {content.demo.badge}
+              </Badge>
             </FadeIn>
+            <TextReveal
+              as="h2"
+              className="font-serif text-3xl lg:text-4xl font-medium mb-4 tracking-tight text-center"
+            >
+              {content.demo.title}
+            </TextReveal>
+            <FadeIn delay={300} className="text-center">
+              <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">{content.demo.subtitle}</p>
+              <MagneticButton className="inline-block">
+                <Button size="xl" variant="luxury" className="text-base group" asChild>
+                  <Link href="/demo">
+                    {content.demo.cta}
+                    <motion.span
+                      className="inline-block ml-2"
+                      whileHover={{ x: 4 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    >
+                      <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </motion.span>
+                  </Link>
+                </Button>
+              </MagneticButton>
+            </FadeIn>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 5. Features "Ce que vous aurez" */}
+        <section className="py-28 px-6 lg:px-8 bg-background relative">
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-20">
+              <FadeIn>
+                <Badge variant="luxury" className="mb-6">
+                  <Sparkles className="w-3.5 h-3.5 mr-1.5 text-accent" />
+                  {content.features.badge}
+                </Badge>
+              </FadeIn>
+              <TextReveal
+                as="h2"
+                className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight"
+              >
+                {content.features.title}
+              </TextReveal>
+              <FadeIn delay={300}>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                  {content.features.subtitle}
+                </p>
+              </FadeIn>
+            </div>
+
+            <motion.div
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
               {content.features.list.map((feature, i) => (
-                <FadeIn key={i} delay={i * 100}>
-                  <div className="bg-card border border-border/50 rounded-sm p-8 hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover-lift h-full">
-                    <div className="w-12 h-12 bg-accent/10 flex items-center justify-center mb-6">
-                      {[Globe, Shield, Zap, Check, Lock, Globe, Zap, Shield][i] &&
-                        React.createElement([Globe, Shield, Zap, Check, Lock, Globe, Zap, Shield][i], {
-                          className: "h-6 w-6 text-accent",
-                        })}
-                    </div>
-                    <h3 className="font-serif font-medium mb-2 text-lg">{feature.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
-                  </div>
-                </FadeIn>
+                <motion.div
+                  key={i}
+                  variants={scaleBlurIn}
+                  whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                  className="bg-card border border-border/50 rounded-sm p-8 hover:border-accent/30 transition-colors duration-500 card-glow h-full accent-line-top"
+                >
+                  <motion.div
+                    className="w-12 h-12 bg-accent/10 flex items-center justify-center mb-6"
+                    whileHover={{ rotate: 12, scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  >
+                    {React.createElement(featureIcons[i], {
+                      className: "h-6 w-6 text-accent",
+                    })}
+                  </motion.div>
+                  <h3 className="font-serif font-medium mb-2 text-lg">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* Section Avant / Après */}
-        <section className="py-28 px-6 lg:px-8 bg-background">
-          <div className="max-w-6xl mx-auto">
-            <FadeIn className="text-center mb-20">
-              <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight">{content.beforeAfter.title}</h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{content.beforeAfter.subtitle}</p>
-              <div className="luxury-divider mt-8" />
-            </FadeIn>
+        {/* 6. Pricing interactif */}
+        <PricingSection />
 
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Colonne AVANT */}
-              <FadeIn direction="left" delay={100}>
-                <div className="bg-destructive/5 border border-destructive/20 rounded-sm p-8">
-                  <div className="flex items-center gap-3 mb-8">
-                    <div className="w-10 h-10 bg-destructive/10 flex items-center justify-center">
-                      <X className="h-5 w-5 text-destructive" />
-                    </div>
-                    <h3 className="text-2xl font-serif font-medium">AVANT</h3>
-                  </div>
+        {/* 7. Before/After slider */}
+        <BeforeAfterSlider />
 
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="font-bold mb-3 text-lg">Technologie & référencement</h4>
-                      <ul className="space-y-2.5 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2">
-                          <X className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-                          <span>Sites lents et mal optimisés pour le SEO</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <X className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-                          <span>Mauvais classement Google = peu de visibilité</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <X className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-                          <span>Contenus dupliqués sans stratégie SEO locale</span>
-                        </li>
-                      </ul>
-                    </div>
+        {/* 8. Témoignages carousel */}
+        <TestimonialsCarousel />
 
-                    <div>
-                      <h4 className="font-bold mb-3 text-lg">Gestion des prix & réservations</h4>
-                      <ul className="space-y-2.5 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2">
-                          <X className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-                          <span>Tarification fixe ou manuelle, impossible à gérer finement</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <X className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-                          <span>Pas de variation par chambre ou nombre d'invités</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <X className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-                          <span>Calendriers déconnectés = risque de double réservation</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="font-bold mb-3 text-lg">Expérience utilisateur & conversion</h4>
-                      <ul className="space-y-2.5 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2">
-                          <X className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-                          <span>Design daté et peu adapté au luxe</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <X className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-                          <span>Parcours de réservation compliqué et décourageant</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <X className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-                          <span>Pas de version mobile ou expérience dégradée</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="font-bold mb-3 text-lg">Évolutivité & maintenance</h4>
-                      <ul className="space-y-2.5 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2">
-                          <X className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-                          <span>Sites figés, difficiles à modifier sans développeur</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <X className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-                          <span>Bugs fréquents et sécurité obsolète</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <X className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
-                          <span>Coûts de maintenance imprévisibles et élevés</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
-
-              {/* Colonne APRÈS */}
-              <FadeIn direction="right" delay={200}>
-                <div className="bg-accent/5 border border-accent/30 rounded-sm p-8 accent-line-top">
-                  <div className="flex items-center gap-3 mb-8">
-                    <div className="w-10 h-10 bg-accent/10 flex items-center justify-center">
-                      <Check className="h-5 w-5 text-accent" />
-                    </div>
-                    <h3 className="text-2xl font-serif font-medium">APRÈS</h3>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="font-bold mb-3 text-lg">Technologie & performance</h4>
-                      <ul className="space-y-2.5 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                          <span>+40% de trafic organique grâce au SEO natif</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                          <span>Temps de chargement ultra-rapide (score 95+/100)</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                          <span>Contenus optimisés pour "villa luxe Saint-Barth"</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="font-bold mb-3 text-lg">Prix & saisons ultra-précis</h4>
-                      <div className="space-y-4">
-                        <div className="ml-6 space-y-3">
-                          <p className="text-sm font-semibold text-foreground">Dashboard centralisé :</p>
-                          <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                              <span>Vue d'ensemble de toutes vos propriétés</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                              <span>Statistiques en temps réel</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                              <span>Gestion multi-propriété simplifiée</span>
-                            </li>
-                          </ul>
-                        </div>
-
-                        <div className="ml-6 space-y-3">
-                          <p className="text-sm font-semibold text-foreground">Prix automatiques :</p>
-                          <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                              <span>Par nombre de chambres occupées</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                              <span>Par nombre d'invités (adultes/enfants)</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                              <span>Saisons multiples (haute, moyenne, basse)</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                              <span>Tarifs événements (Noël, Nouvel An...)</span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h4 className="font-bold mb-3 text-lg">Gestion centralisée & automatisation</h4>
-                      <ul className="space-y-2.5 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                          <span>CRM intégré pour gérer toutes vos demandes</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                          <span>Synchronisation calendriers automatique</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                          <span>Notifications instantanées email + SMS</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="font-bold mb-3 text-lg">Design & conversion</h4>
-                      <ul className="space-y-2.5 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                          <span>Design haut de gamme adapté au luxe</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                          <span>+60% de conversions avec parcours optimisé</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                          <span>Responsive parfait sur mobile/tablette</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="font-bold mb-3 text-lg">Autonomie & tranquillité</h4>
-                      <div className="space-y-4">
-                        <ul className="space-y-2.5 text-sm text-muted-foreground">
-                          <li className="flex items-start gap-2">
-                            <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                            <span>Interface intuitive, aucune compétence technique requise</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                            <span>Modifications en temps réel sans délai</span>
-                          </li>
-                        </ul>
-
-                        <div className="ml-6 space-y-3">
-                          <p className="text-sm font-semibold text-foreground">Maintenance incluse :</p>
-                          <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                              <span>Mises à jour automatiques</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                              <span>Support technique réactif</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                              <span>Sécurité et sauvegardes garanties</span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 p-6 bg-accent/10 border border-accent/30 rounded-sm">
-                    <p className="text-sm font-medium text-center">
-                      Résultat : vous gagnez du temps, générez plus de réservations, et offrez une expérience client
-                      premium digne de Saint-Barth
-                    </p>
-                  </div>
-                </div>
-              </FadeIn>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA final */}
+        {/* 9. CTA final */}
         <section className="py-32 px-6 lg:px-8 relative overflow-hidden bg-primary text-primary-foreground">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,var(--accent)_0%,transparent_50%)] opacity-10" />
-          <FadeIn className="max-w-4xl mx-auto text-center relative">
-            <div className="luxury-divider mb-8" />
-            <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight">{content.cta.title}</h2>
-            <p className="text-xl mb-10 text-primary-foreground/80">{content.cta.subtitle}</p>
-            <Button
-              size="xl"
-              variant="luxury"
-              className="text-lg"
-              asChild
+          <div className="absolute inset-0 shimmer-gold opacity-20" />
+          <div className="max-w-4xl mx-auto text-center relative">
+            <FadeIn>
+              <div className="luxury-divider mb-8" />
+            </FadeIn>
+            <TextReveal
+              as="h2"
+              className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight"
             >
-              <Link href="/contact">
-                {content.cta.button}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </FadeIn>
+              {content.cta.title}
+            </TextReveal>
+            <FadeIn delay={400}>
+              <p className="text-xl mb-10 text-primary-foreground/80">{content.cta.subtitle}</p>
+            </FadeIn>
+            <FadeIn delay={600}>
+              <MagneticButton className="inline-block">
+                <Button
+                  size="xl"
+                  variant="luxury"
+                  className="text-lg group"
+                  asChild
+                >
+                  <Link href="/contact">
+                    {content.cta.button}
+                    <motion.span
+                      className="inline-block ml-2"
+                      whileHover={{ x: 4 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    >
+                      <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </motion.span>
+                  </Link>
+                </Button>
+              </MagneticButton>
+            </FadeIn>
+          </div>
         </section>
       </main>
 

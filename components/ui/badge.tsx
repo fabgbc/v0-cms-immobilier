@@ -19,7 +19,7 @@ const badgeVariants = cva(
           'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground',
         // Luxury gold badge
         luxury:
-          'border-accent/30 bg-accent/10 text-accent [a&]:hover:bg-accent/20',
+          'border-transparent bg-accent/8 text-accent [a&]:hover:bg-accent/15',
         // Subtle elegant badge
         elegant:
           'border-0 bg-muted text-muted-foreground [a&]:hover:bg-muted/80',

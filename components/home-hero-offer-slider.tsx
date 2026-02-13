@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
+import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Star } from "lucide-react"
@@ -57,6 +58,34 @@ const slides: Slide[] = [
   },
 ]
 
+const luxuryEase = [0.4, 0, 0.2, 1] as const
+
+// Word-by-word title animation
+function AnimatedTitle({ text }: { text: string }) {
+  const words = text.split(" ")
+  return (
+    <h1 className="font-serif text-4xl lg:text-6xl xl:text-7xl font-medium tracking-tight mb-8 leading-[1.05] text-balance">
+      {words.map((word, i) => (
+        <span key={i} className="inline-block overflow-hidden">
+          <motion.span
+            className="inline-block"
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: i * 0.04,
+              ease: luxuryEase,
+            }}
+          >
+            {word}
+          </motion.span>
+          {i < words.length - 1 && <span>&nbsp;</span>}
+        </span>
+      ))}
+    </h1>
+  )
+}
+
 export function HomeHeroOfferSlider() {
   const { language } = useLanguage()
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -65,7 +94,7 @@ export function HomeHeroOfferSlider() {
 
   const goToSlide = useCallback((index: number) => {
     setCurrentIndex(index)
-    setIsAutoPlaying(false) // Pause auto-play when user manually navigates
+    setIsAutoPlaying(false)
   }, [])
 
   useEffect(() => {
@@ -81,88 +110,130 @@ export function HomeHeroOfferSlider() {
   const handleMouseEnter = () => setIsPaused(true)
   const handleMouseLeave = () => setIsPaused(false)
 
+  const slide = slides[currentIndex]
+
   return (
     <section
       className="pt-40 pb-28 px-6 lg:px-8 relative overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,var(--accent)_0%,transparent_50%)] opacity-5" />
+      {/* Animated shimmer background */}
+      <div className="absolute inset-0 shimmer-gold" />
 
-      {/* Elegant decorative line */}
-      <div className="absolute top-32 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-accent/0 via-accent/50 to-accent/0" />
+      {/* Subtle radial gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,var(--accent)_0%,transparent_50%)] opacity-[0.03]" />
+
+      {/* Floating decorative elements */}
+      <div className="absolute top-32 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-accent/0 via-accent/50 to-accent/0 float-slow" />
 
       <div className="max-w-5xl mx-auto relative">
         <div className="max-w-4xl mx-auto">
-          <Badge variant="luxury" className="mb-8 mx-auto block w-fit">
-            <Star className="w-3.5 h-3.5 mr-1.5 fill-accent text-accent" />
-            {language === "fr"
-              ? "50+ partenaires a Saint-Barth"
-              : "50+ partners in Saint-Barth"}
-          </Badge>
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Badge variant="luxury" className="mb-8">
+              <Star className="w-3.5 h-3.5 mr-1.5 fill-accent text-accent" />
+              {language === "fr"
+                ? "50+ partenaires à Saint-Barth"
+                : "50+ partners in Saint-Barth"}
+            </Badge>
+          </motion.div>
 
           {/* Carousel Content */}
-          <div className="grid [&>*]:col-start-1 [&>*]:row-start-1">
-            {slides.map((slide, index) => (
-              <div
+          <div className="relative min-h-[320px] lg:min-h-[300px]">
+            <AnimatePresence mode="wait">
+              <motion.div
                 key={slide.id}
-                className={cn(
-                  "transition-opacity duration-700",
-                  index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none",
-                )}
-                aria-hidden={index !== currentIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3, ease: luxuryEase }}
+                className="text-center"
               >
-                <div className="text-center">
-                  <h1 className="font-serif text-4xl lg:text-6xl xl:text-7xl font-medium tracking-tight mb-8 leading-[1.05] text-balance">
-                    {slide.title[language]}
-                  </h1>
+                {/* Word-by-word title reveal */}
+                <AnimatedTitle text={slide.title[language]} />
 
-                  <p className="text-lg lg:text-xl text-muted-foreground mb-6 leading-relaxed max-w-3xl mx-auto">
-                    {slide.description1[language]}
-                  </p>
+                {/* Description 1 — fade up with delay */}
+                <motion.p
+                  className="text-lg lg:text-xl text-muted-foreground mb-6 leading-relaxed max-w-3xl mx-auto"
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4, ease: luxuryEase }}
+                >
+                  {slide.description1[language]}
+                </motion.p>
 
-                  <p className="text-base lg:text-lg text-muted-foreground/70 mb-12 leading-relaxed max-w-3xl mx-auto">
-                    {slide.description2[language]}
-                  </p>
+                {/* Description 2 — fade up with more delay */}
+                <motion.p
+                  className="text-base lg:text-lg text-muted-foreground/70 mb-12 leading-relaxed max-w-3xl mx-auto"
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.55, ease: luxuryEase }}
+                >
+                  {slide.description2[language]}
+                </motion.p>
 
+                {/* CTA Button — scale + fade */}
+                <motion.div
+                  initial={{ opacity: 0, y: 16, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.7, ease: luxuryEase }}
+                >
                   <Button
                     asChild
                     size="xl"
                     variant="luxury"
-                    className="text-base"
+                    className="text-base group"
                   >
                     <Link href={slide.ctaLink}>
                       {slide.ctaText[language]}
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                      <motion.span
+                        className="inline-block ml-2"
+                        whileHover={{ x: 4 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      >
+                        <ArrowRight className="h-5 w-5" />
+                      </motion.span>
                     </Link>
                   </Button>
-                </div>
-              </div>
-            ))}
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
-          {/* Navigation Dots - Luxury style */}
+          {/* Navigation Dots */}
           <div className="flex items-center justify-center gap-4 mt-12" role="tablist" aria-label="Navigation slides">
-            {slides.map((slide, index) => (
+            {slides.map((s, index) => (
               <button
-                key={slide.id}
+                key={s.id}
                 onClick={() => goToSlide(index)}
                 className={cn(
-                  "px-5 py-2.5 rounded-sm text-sm font-medium transition-all duration-300",
+                  "relative px-5 py-2.5 rounded-sm text-sm font-medium transition-all duration-300",
                   "hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2",
                   index === currentIndex
-                    ? "bg-accent text-accent-foreground"
+                    ? "text-accent-foreground"
                     : "bg-secondary text-muted-foreground hover:text-foreground",
                 )}
                 role="tab"
                 aria-selected={index === currentIndex}
-                aria-controls={`slide-${slide.id}`}
+                aria-controls={`slide-${s.id}`}
                 aria-label={
-                  language === "fr" ? `Aller au slide ${slide.label[language]}` : `Go to slide ${slide.label[language]}`
+                  language === "fr" ? `Aller au slide ${s.label[language]}` : `Go to slide ${s.label[language]}`
                 }
               >
-                {slide.label[language]}
+                {/* Animated background pill */}
+                {index === currentIndex && (
+                  <motion.div
+                    layoutId="active-slide-pill"
+                    className="absolute inset-0 bg-accent rounded-sm"
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  />
+                )}
+                <span className="relative z-10">{s.label[language]}</span>
               </button>
             ))}
           </div>

@@ -1,7 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
+import { useEffect, useRef, useState } from "react"
+import { useInView } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 interface AnimatedCounterProps {
@@ -21,11 +21,12 @@ export function AnimatedCounter({
   className,
   decimals = 0,
 }: AnimatedCounterProps) {
-  const { ref, isVisible } = useIntersectionObserver<HTMLSpanElement>({ threshold: 0.3 })
+  const ref = useRef<HTMLSpanElement>(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
   const [displayValue, setDisplayValue] = useState(0)
 
   useEffect(() => {
-    if (!isVisible) return
+    if (!isInView) return
 
     let startTime: number
     let animationFrame: number
@@ -34,7 +35,6 @@ export function AnimatedCounter({
       if (!startTime) startTime = timestamp
       const progress = Math.min((timestamp - startTime) / duration, 1)
 
-      // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4)
       const currentValue = easeOutQuart * value
 
@@ -52,7 +52,7 @@ export function AnimatedCounter({
         cancelAnimationFrame(animationFrame)
       }
     }
-  }, [isVisible, value, duration])
+  }, [isInView, value, duration])
 
   const formattedValue = decimals > 0
     ? displayValue.toFixed(decimals)

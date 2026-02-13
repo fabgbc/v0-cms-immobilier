@@ -8,9 +8,47 @@ import Link from "next/link"
 import { Building2, Home, Star, HelpCircle } from "lucide-react"
 import { useState } from "react"
 import { FadeIn } from "@/components/animations"
+import { useLanguage } from "@/lib/language-context"
+
+const t = {
+  fr: {
+    title: "Questions fréquentes",
+    subtitle: "Toutes les réponses aux questions que vous vous posez sur notre CMS immobilier. Si vous ne trouvez pas votre réponse, contactez-nous.",
+    tabs: {
+      mostAsked: "Questions les plus posées",
+      general: "Générale",
+      owners: "Propriétaire",
+      agencies: "Agence immobilière",
+    },
+    cta: {
+      title: "Vous avez d'autres questions ?",
+      subtitle: "Notre équipe est là pour répondre à toutes vos interrogations sur le CMS immobilier.",
+      agencies: "Solution Agences",
+      owners: "Solution Propriétaires",
+    },
+  },
+  en: {
+    title: "Frequently Asked Questions",
+    subtitle: "All the answers to your questions about our real estate CMS. If you can't find what you're looking for, contact us.",
+    tabs: {
+      mostAsked: "Most asked",
+      general: "General",
+      owners: "Property Owners",
+      agencies: "Real Estate Agencies",
+    },
+    cta: {
+      title: "Have more questions?",
+      subtitle: "Our team is here to answer all your questions about the real estate CMS.",
+      agencies: "Agency Solution",
+      owners: "Owner Solution",
+    },
+  },
+}
 
 export default function FAQPage() {
   const [activeTab, setActiveTab] = useState<"most-asked" | "general" | "owners" | "agencies">("most-asked")
+  const { language } = useLanguage()
+  const content = t[language]
 
   return (
     <>
@@ -20,12 +58,11 @@ export default function FAQPage() {
         <section className="py-24 bg-gradient-to-b from-background to-muted/20">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <FadeIn>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 font-serif">Questions fréquentes</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 font-serif">{content.title}</h1>
             </FadeIn>
             <FadeIn delay={100}>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Toutes les réponses aux questions que vous vous posez sur notre CMS immobilier. Si vous ne trouvez pas
-                votre réponse, contactez-nous.
+                {content.subtitle}
               </p>
             </FadeIn>
           </div>
@@ -34,58 +71,58 @@ export default function FAQPage() {
         {/* Tabs */}
         <section className="border-b border-border sticky top-16 bg-background z-40">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
-            <div className="flex gap-2 overflow-x-auto" role="tablist" aria-label="Catégories de questions">
+            <div className="flex gap-2 overflow-x-auto" role="tablist" aria-label={language === "fr" ? "Catégories de questions" : "Question categories"}>
               <button
                 role="tab"
                 aria-selected={activeTab === "most-asked"}
                 onClick={() => setActiveTab("most-asked")}
-                className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 ${
+                className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   activeTab === "most-asked"
                     ? "border-accent text-accent"
                     : "border-transparent text-muted-foreground hover:text-foreground"
                 }`}
               >
                 <Star className="w-4 h-4" />
-                Questions les plus posées
+                {content.tabs.mostAsked}
               </button>
               <button
                 role="tab"
                 aria-selected={activeTab === "general"}
                 onClick={() => setActiveTab("general")}
-                className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 ${
+                className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   activeTab === "general"
                     ? "border-accent text-accent"
                     : "border-transparent text-muted-foreground hover:text-foreground"
                 }`}
               >
                 <HelpCircle className="w-4 h-4" />
-                Générale
+                {content.tabs.general}
               </button>
               <button
                 role="tab"
                 aria-selected={activeTab === "owners"}
                 onClick={() => setActiveTab("owners")}
-                className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 ${
+                className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   activeTab === "owners"
                     ? "border-accent text-accent"
                     : "border-transparent text-muted-foreground hover:text-foreground"
                 }`}
               >
                 <Home className="w-4 h-4" />
-                Propriétaire
+                {content.tabs.owners}
               </button>
               <button
                 role="tab"
                 aria-selected={activeTab === "agencies"}
                 onClick={() => setActiveTab("agencies")}
-                className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 ${
+                className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   activeTab === "agencies"
                     ? "border-accent text-accent"
                     : "border-transparent text-muted-foreground hover:text-foreground"
                 }`}
               >
                 <Building2 className="w-4 h-4" />
-                Agence immobilière
+                {content.tabs.agencies}
               </button>
             </div>
           </div>
@@ -519,20 +556,20 @@ export default function FAQPage() {
         <section className="py-20 border-t border-border bg-muted/30">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <FadeIn>
-              <h2 className="text-3xl font-bold tracking-tight mb-4 font-serif">Vous avez d'autres questions ?</h2>
+              <h2 className="text-3xl font-bold tracking-tight mb-4 font-serif">{content.cta.title}</h2>
             </FadeIn>
             <FadeIn delay={100}>
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Notre équipe est là pour répondre à toutes vos interrogations sur le CMS immobilier.
+                {content.cta.subtitle}
               </p>
             </FadeIn>
             <FadeIn delay={200}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
-                  <Link href="/agences-immobilieres">Solution Agences</Link>
+                  <Link href="/agences-immobilieres">{content.cta.agencies}</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link href="/proprietaires">Solution Propriétaires</Link>
+                  <Link href="/proprietaires">{content.cta.owners}</Link>
                 </Button>
               </div>
             </FadeIn>

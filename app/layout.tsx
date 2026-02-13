@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter, Cormorant_Garamond } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { LanguageProvider } from "@/lib/language-context"
+import { ScrollProgress } from "@/components/scroll-progress"
 import "./globals.css"
 
 const inter = Inter({
@@ -115,6 +116,7 @@ export default function RootLayout({
         >
           Aller au contenu principal
         </a>
+        <ScrollProgress />
         <LanguageProvider>{children}</LanguageProvider>
         <Analytics />
       </body>

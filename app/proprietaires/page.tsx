@@ -14,8 +14,15 @@ import {
   Users,
   BookOpen,
   TrendingUp,
+  Zap,
+  Target,
+  Lock,
+  Sparkles,
+  TrendingDown,
+  DollarSign,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export const metadata: Metadata = {
   title: "Solution Propriétaires | Site Officiel pour Votre Villa",
@@ -80,8 +87,10 @@ export default function ProprietairesPage() {
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
-                  <Button size="lg" variant="outline">
-                    Voir comment ça marche
+                  <Button size="lg" variant="outline" asChild>
+                    <Link href="/demo">
+                      Voir comment ça marche
+                    </Link>
                   </Button>
                 </div>
               </FadeIn>
@@ -194,7 +203,7 @@ export default function ProprietairesPage() {
                 <Card className="border-2 hover:border-accent transition-colors hover-lift h-full">
                   <CardContent className="p-8">
                     <div className="mb-6 rounded-xl overflow-hidden">
-                      <img src="/images/otas.png" alt="Synchronisation OTAs" className="w-full h-48 object-cover image-luxury" />
+                      <Image src="/images/otas.png" alt="Synchronisation OTAs" width={400} height={192} className="w-full h-48 object-cover image-luxury" />
                     </div>
                     <div className="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-6">
                       <Repeat className="h-8 w-8 text-accent" />
@@ -258,7 +267,7 @@ export default function ProprietairesPage() {
                 <Card className="border-2 hover:border-accent transition-colors hover-lift h-full">
                   <CardContent className="p-8">
                     <div className="mb-6 rounded-xl overflow-hidden">
-                      <img src="/images/seo.png" alt="Visibilité Google" className="w-full h-48 object-cover image-luxury" />
+                      <Image src="/images/seo.png" alt="Visibilité Google" width={400} height={192} className="w-full h-48 object-cover image-luxury" />
                     </div>
                     <div className="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-6">
                       <Globe className="h-8 w-8 text-accent" />
@@ -661,37 +670,49 @@ export default function ProprietairesPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
               <Card className="border-2">
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3">💰</div>
+                  <div className="w-12 h-12 bg-accent/10 flex items-center justify-center mx-auto mb-3 rounded-sm">
+                    <DollarSign className="h-6 w-6 text-accent" />
+                  </div>
                   <p className="font-medium">Vous voulez augmenter vos réservations directes</p>
                 </CardContent>
               </Card>
               <Card className="border-2">
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3">📉</div>
+                  <div className="w-12 h-12 bg-accent/10 flex items-center justify-center mx-auto mb-3 rounded-sm">
+                    <TrendingDown className="h-6 w-6 text-accent" />
+                  </div>
                   <p className="font-medium">Vous êtes lassé des commissions élevées</p>
                 </CardContent>
               </Card>
               <Card className="border-2">
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3">✨</div>
+                  <div className="w-12 h-12 bg-accent/10 flex items-center justify-center mx-auto mb-3 rounded-sm">
+                    <Sparkles className="h-6 w-6 text-accent" />
+                  </div>
                   <p className="font-medium">Votre villa haut de gamme mérite une image premium</p>
                 </CardContent>
               </Card>
               <Card className="border-2">
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3">🎯</div>
+                  <div className="w-12 h-12 bg-accent/10 flex items-center justify-center mx-auto mb-3 rounded-sm">
+                    <Target className="h-6 w-6 text-accent" />
+                  </div>
                   <p className="font-medium">Vous souhaitez reprendre le contrôle de votre distribution</p>
                 </CardContent>
               </Card>
               <Card className="border-2">
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3">🔒</div>
+                  <div className="w-12 h-12 bg-accent/10 flex items-center justify-center mx-auto mb-3 rounded-sm">
+                    <Lock className="h-6 w-6 text-accent" />
+                  </div>
                   <p className="font-medium">Vous voulez construire votre propre base clients</p>
                 </CardContent>
               </Card>
               <Card className="border-2">
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3">⚡</div>
+                  <div className="w-12 h-12 bg-accent/10 flex items-center justify-center mx-auto mb-3 rounded-sm">
+                    <Zap className="h-6 w-6 text-accent" />
+                  </div>
                   <p className="font-medium">Vous cherchez une solution simple et autonome</p>
                 </CardContent>
               </Card>

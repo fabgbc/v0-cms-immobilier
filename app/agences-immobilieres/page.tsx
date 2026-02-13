@@ -78,8 +78,10 @@ export default function AgencesPage() {
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
-                  <Button size="lg" variant="outline" className="font-semibold text-lg px-8 py-6 bg-transparent">
-                    Télécharger la brochure
+                  <Button size="lg" variant="outline" className="font-semibold text-lg px-8 py-6 bg-transparent" asChild>
+                    <Link href="/demo">
+                      Voir la démo
+                    </Link>
                   </Button>
                 </div>
               </FadeIn>
@@ -645,9 +647,10 @@ export default function AgencesPage() {
                       </li>
                     </ul>
 
-                    <div className="border-l-4 border-accent pl-4 py-2 bg-accent/5 rounded-r">
+                    <div className="border-l-4 border-accent pl-4 py-2 bg-accent/5 rounded-r flex items-start gap-2">
+                      <ArrowRight className="h-4 w-4 text-accent shrink-0 mt-0.5" />
                       <p className="text-sm font-medium">
-                        ➜ Avant : vous dépendiez d'un développeur. Après : vous pilotez votre business en toute
+                        Avant : vous dépendiez d'un développeur. Après : vous pilotez votre business en toute
                         autonomie.
                       </p>
                     </div>

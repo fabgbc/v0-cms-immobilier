@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { cn } from "@/lib/utils"
 import type { ReactNode } from "react"
 
@@ -9,7 +10,7 @@ interface ParallaxImageProps {
   alt: string
   className?: string
   containerClassName?: string
-  speed?: number // 0.1 to 0.5 recommended
+  speed?: number
   overlay?: boolean
   overlayClassName?: string
   children?: ReactNode
@@ -26,41 +27,21 @@ export function ParallaxImage({
   children,
 }: ParallaxImageProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [offset, setOffset] = useState(0)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  })
 
-      const rect = containerRef.current.getBoundingClientRect()
-      const windowHeight = window.innerHeight
-
-      // Calculate how far the element is from center of viewport
-      const elementCenter = rect.top + rect.height / 2
-      const viewportCenter = windowHeight / 2
-      const distanceFromCenter = elementCenter - viewportCenter
-
-      // Apply parallax offset based on distance
-      const newOffset = distanceFromCenter * speed
-      setOffset(newOffset)
-    }
-
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    handleScroll() // Initial calculation
-
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [speed])
+  const y = useTransform(scrollYProgress, [0, 1], [speed * -100, speed * 100])
 
   return (
     <div ref={containerRef} className={cn("relative overflow-hidden", containerClassName)}>
-      <img
+      <motion.img
         src={src}
         alt={alt}
         className={cn("w-full h-full object-cover scale-110", className)}
-        style={{
-          transform: `translateY(${offset}px) scale(1.1)`,
-          transition: "transform 0.1s ease-out",
-        }}
+        style={{ y, scale: 1.1 }}
       />
       {overlay && (
         <div
@@ -89,40 +70,20 @@ export function ParallaxSection({
   direction = "up",
 }: ParallaxSectionProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const [offset, setOffset] = useState(0)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!ref.current) return
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  })
 
-      const rect = ref.current.getBoundingClientRect()
-      const windowHeight = window.innerHeight
-
-      const elementCenter = rect.top + rect.height / 2
-      const viewportCenter = windowHeight / 2
-      const distanceFromCenter = elementCenter - viewportCenter
-
-      const multiplier = direction === "up" ? -1 : 1
-      const newOffset = distanceFromCenter * speed * multiplier
-      setOffset(newOffset)
-    }
-
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    handleScroll()
-
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [speed, direction])
+  const multiplier = direction === "up" ? -1 : 1
+  const y = useTransform(scrollYProgress, [0, 1], [speed * multiplier * -100, speed * multiplier * 100])
 
   return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        transform: `translateY(${offset}px)`,
-        transition: "transform 0.1s ease-out",
-      }}
-    >
-      {children}
+    <div ref={ref} className="overflow-hidden">
+      <motion.div className={className} style={{ y }}>
+        {children}
+      </motion.div>
     </div>
   )
 }

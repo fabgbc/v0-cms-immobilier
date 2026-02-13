@@ -20,16 +20,31 @@ export default function ContactPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitError(false)
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    try {
+      const form = e.target as HTMLFormElement
+      const data = new FormData(form)
+      data.append("form-name", "contact")
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+      })
+
+      if (!response.ok) throw new Error("Erreur serveur")
+      setIsSubmitted(true)
+    } catch {
+      setSubmitError(true)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -99,7 +114,20 @@ export default function ContactPage() {
                 <FadeIn>
                   <Card className="border-2">
                     <CardContent className="p-8">
-                      <form onSubmit={handleSubmit} className="space-y-6">
+                      <form
+                        name="contact"
+                        method="POST"
+                        data-netlify="true"
+                        netlify-honeypot="bot-field"
+                        onSubmit={handleSubmit}
+                        className="space-y-6"
+                      >
+                        <input type="hidden" name="form-name" value="contact" />
+                        <p className="hidden">
+                          <label>
+                            Ne remplissez pas ce champ : <input name="bot-field" />
+                          </label>
+                        </p>
                         <div className="grid md:grid-cols-2 gap-6">
                           <div>
                             <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -215,8 +243,14 @@ export default function ContactPage() {
                           )}
                         </Button>
 
+                        {submitError && (
+                          <p className="text-sm text-destructive text-center bg-destructive/10 py-3 px-4 rounded-lg">
+                            Une erreur est survenue. Veuillez réessayer ou nous contacter directement à contact@saintbarth-villas.com
+                          </p>
+                        )}
+
                         <p className="text-sm text-muted-foreground text-center">
-                          En soumettant ce formulaire, vous acceptez d'être recontacté par notre équipe.
+                          En soumettant ce formulaire, vous acceptez d&apos;être recontacté par notre équipe.
                         </p>
                       </form>
                     </CardContent>
@@ -237,8 +271,8 @@ export default function ContactPage() {
                           </div>
                           <div>
                             <div className="font-medium">Email</div>
-                            <a href="mailto:contact@example.com" className="text-muted-foreground hover:text-accent transition-colors">
-                              contact@example.com
+                            <a href="mailto:contact@saintbarth-villas.com" className="text-muted-foreground hover:text-accent transition-colors">
+                              contact@saintbarth-villas.com
                             </a>
                           </div>
                         </div>
@@ -249,8 +283,8 @@ export default function ContactPage() {
                           </div>
                           <div>
                             <div className="font-medium">Téléphone</div>
-                            <a href="tel:+590690000000" className="text-muted-foreground hover:text-accent transition-colors">
-                              +590 690 00 00 00
+                            <a href="tel:+590590278888" className="text-muted-foreground hover:text-accent transition-colors">
+                              +590 590 27 88 88
                             </a>
                           </div>
                         </div>

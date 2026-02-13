@@ -1,7 +1,8 @@
 "use client"
 
-import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
+import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { getDirectionVariants, luxuryTransition } from "@/lib/motion-variants"
 import type { ReactNode } from "react"
 
 interface FadeInProps {
@@ -21,31 +22,23 @@ export function FadeIn({
   duration = 700,
   threshold = 0.1,
 }: FadeInProps) {
-  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>({ threshold })
-
-  const directionClasses = {
-    up: "translate-y-8",
-    down: "-translate-y-8",
-    left: "translate-x-8",
-    right: "-translate-x-8",
-    none: "",
-  }
+  const variants = getDirectionVariants(direction)
 
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "transition-all ease-out",
-        isVisible ? "opacity-100 translate-x-0 translate-y-0" : `opacity-0 ${directionClasses[direction]}`,
-        className
-      )}
-      style={{
-        transitionDuration: `${duration}ms`,
-        transitionDelay: `${delay}ms`,
+    <motion.div
+      variants={variants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: threshold }}
+      transition={{
+        ...luxuryTransition,
+        duration: duration / 1000,
+        delay: delay / 1000,
       }}
+      className={cn(className)}
     >
       {children}
-    </div>
+    </motion.div>
   )
 }
 
@@ -66,34 +59,37 @@ export function StaggerChildren({
   staggerDelay = 100,
   duration = 700,
 }: StaggerChildrenProps) {
-  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1 })
-
-  const directionClasses = {
-    up: "translate-y-8",
-    down: "-translate-y-8",
-    left: "translate-x-8",
-    right: "-translate-x-8",
-    none: "",
-  }
+  const childVariants = getDirectionVariants(direction)
 
   return (
-    <div ref={ref} className={className}>
+    <motion.div
+      variants={{
+        hidden: { opacity: 1 },
+        visible: {
+          opacity: 1,
+          transition: {
+            staggerChildren: staggerDelay / 1000,
+          },
+        },
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      className={className}
+    >
       {children.map((child, index) => (
-        <div
+        <motion.div
           key={index}
-          className={cn(
-            "transition-all ease-out",
-            isVisible ? "opacity-100 translate-x-0 translate-y-0" : `opacity-0 ${directionClasses[direction]}`,
-            childClassName
-          )}
-          style={{
-            transitionDuration: `${duration}ms`,
-            transitionDelay: `${index * staggerDelay}ms`,
+          variants={childVariants}
+          transition={{
+            ...luxuryTransition,
+            duration: duration / 1000,
           }}
+          className={cn(childClassName)}
         >
           {child}
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   )
 }
