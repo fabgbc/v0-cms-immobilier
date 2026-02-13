@@ -1,9 +1,21 @@
+import type { Metadata } from "next"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Calendar, Clock } from "lucide-react"
 import Link from "next/link"
 import { FadeIn } from "@/components/animations"
+
+export const metadata: Metadata = {
+  title: "Blog | Conseils & Stratégies Réservations",
+  description:
+    "Stratégies, conseils et bonnes pratiques pour maximiser la visibilité de vos villas et augmenter vos réservations directes à Saint-Barthélemy.",
+  openGraph: {
+    title: "Blog | Saint-Barth Villas CMS",
+    description:
+      "Guides et stratégies pour maximiser vos réservations de villas de luxe à St Barth.",
+  },
+}
 
 export default function BlogPage() {
   return (

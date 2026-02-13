@@ -34,8 +34,10 @@ export default function FAQPage() {
         {/* Tabs */}
         <section className="border-b border-border sticky top-16 bg-background z-40">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
-            <div className="flex gap-2 overflow-x-auto">
+            <div className="flex gap-2 overflow-x-auto" role="tablist" aria-label="Catégories de questions">
               <button
+                role="tab"
+                aria-selected={activeTab === "most-asked"}
                 onClick={() => setActiveTab("most-asked")}
                 className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 ${
                   activeTab === "most-asked"
@@ -47,6 +49,8 @@ export default function FAQPage() {
                 Questions les plus posées
               </button>
               <button
+                role="tab"
+                aria-selected={activeTab === "general"}
                 onClick={() => setActiveTab("general")}
                 className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 ${
                   activeTab === "general"
@@ -58,6 +62,8 @@ export default function FAQPage() {
                 Générale
               </button>
               <button
+                role="tab"
+                aria-selected={activeTab === "owners"}
                 onClick={() => setActiveTab("owners")}
                 className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 ${
                   activeTab === "owners"
@@ -69,6 +75,8 @@ export default function FAQPage() {
                 Propriétaire
               </button>
               <button
+                role="tab"
+                aria-selected={activeTab === "agencies"}
                 onClick={() => setActiveTab("agencies")}
                 className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 ${
                   activeTab === "agencies"
@@ -93,7 +101,7 @@ export default function FAQPage() {
                     Êtes-vous à SBH ou en France ?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground leading-relaxed">
-                    <div class="pt-0 pb-4 text-muted-foreground leading-relaxed">
+                    <div className="pt-0 pb-4 text-muted-foreground leading-relaxed">
                       Je vis à St Barth depuis 9 ans et, depuis 5 ans, j'ai réalisé plus de 150 sites internet pour des
                       entreprises locales, des agences immobilières et des propriétaires d'hébergements.&nbsp;
                     </div>

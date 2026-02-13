@@ -168,7 +168,7 @@ export default function HomePage() {
     <>
       <Navigation />
 
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen">
         <HomeHeroOfferSlider />
 
         {/* Section Deux profils, un même objectif */}

@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import {
   ArrowRight,
@@ -13,6 +14,17 @@ import {
   Shield,
   Database,
 } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: "Fonctionnalités | CMS Immobilier Complet",
+  description:
+    "Découvrez toutes les fonctionnalités du CMS : SEO natif, tarification dynamique, gestion des villas, moteur de recherche, messagerie centralisée, maintenance incluse.",
+  openGraph: {
+    title: "Fonctionnalités | Saint-Barth Villas CMS",
+    description:
+      "CMS immobilier complet : SEO, tarification dynamique, gestion des villas, IA, maintenance incluse.",
+  },
+}
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"

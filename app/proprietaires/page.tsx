@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import {
   ArrowRight,
   Check,
@@ -15,6 +16,17 @@ import {
   TrendingUp,
 } from "lucide-react"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Solution Propriétaires | Site Officiel pour Votre Villa",
+  description:
+    "Créez le site officiel de votre villa à Saint-Barthélemy. Réservations directes sans commission, SEO natif, design premium. Solution clé en main.",
+  openGraph: {
+    title: "Solution Propriétaires | Saint-Barth Villas CMS",
+    description:
+      "Créez le site officiel de votre villa. Réservations directes, 0% commission OTA, référencement Google optimisé.",
+  },
+}
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"

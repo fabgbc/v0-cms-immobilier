@@ -19,9 +19,49 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: "CMS Immobilier - Gestion Immobilière à Saint-Barthélemy",
-  description: "Plateforme de gestion immobilière complète pour agences et propriétaires à St Barth",
-  generator: "v0.app",
+  metadataBase: new URL("https://www.saintbarth-villas.com"),
+  title: {
+    default: "CMS Immobilier Saint-Barthélemy | Sites & Gestion pour Villas de Luxe",
+    template: "%s | Saint-Barth Villas CMS",
+  },
+  description:
+    "Plateforme de gestion immobilière complète pour agences et propriétaires à Saint-Barthélemy. Site web premium, réservations directes, SEO natif, tarification dynamique.",
+  keywords: [
+    "CMS immobilier",
+    "Saint-Barthélemy",
+    "location villa luxe",
+    "site immobilier",
+    "gestion locative",
+    "réservation directe",
+    "St Barth",
+  ],
+  authors: [{ name: "Saint-Barth Villas" }],
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    alternateLocale: "en_US",
+    siteName: "Saint-Barth Villas CMS",
+    title: "CMS Immobilier Saint-Barthélemy | Sites & Gestion pour Villas de Luxe",
+    description:
+      "Plateforme de gestion immobilière complète pour agences et propriétaires à Saint-Barthélemy. Site web premium, réservations directes, SEO natif.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CMS Immobilier Saint-Barthélemy",
+    description:
+      "Sites web premium & gestion locative pour villas de luxe à St Barth.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: [
       {
@@ -48,7 +88,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Saint-Barth Villas CMS",
+              description:
+                "Plateforme de gestion immobilière pour agences et propriétaires à Saint-Barthélemy",
+              url: "https://www.saintbarth-villas.com",
+              areaServed: {
+                "@type": "Place",
+                name: "Saint-Barthélemy",
+              },
+              serviceType: "CMS immobilier",
+            }),
+          }}
+        />
+      </head>
       <body className={`${inter.variable} ${cormorant.variable} font-sans antialiased`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-accent focus:text-accent-foreground focus:px-4 focus:py-2 focus:rounded-md"
+        >
+          Aller au contenu principal
+        </a>
         <LanguageProvider>{children}</LanguageProvider>
         <Analytics />
       </body>

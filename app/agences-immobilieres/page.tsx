@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import {
   ArrowRight,
   Check,
@@ -21,6 +22,17 @@ import {
   DollarSign,
 } from "lucide-react"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Solution Agences Immobilières | CMS n°1 à Saint-Barthélemy",
+  description:
+    "Le CMS immobilier conçu pour les agences de Saint-Barthélemy. Gestion multi-villas, tarification dynamique, SEO natif, IA embarquée. Prêt en 21 jours.",
+  openGraph: {
+    title: "Solution Agences Immobilières | Saint-Barth Villas CMS",
+    description:
+      "CMS immobilier professionnel pour agences à St Barth. Gestion centralisée, tarification dynamique, SEO natif.",
+  },
+}
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
