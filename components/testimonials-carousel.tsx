@@ -120,30 +120,30 @@ export function TestimonialsCarousel() {
   }, [emblaApi])
 
   return (
-    <section className="py-28 px-6 lg:px-8 bg-muted/30 relative overflow-hidden">
+    <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-muted/30 relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
 
-      {/* Decorative quote marks */}
-      <div className="absolute top-20 left-10 opacity-[0.03]">
+      {/* Decorative quote marks — hidden on mobile */}
+      <div className="absolute top-20 left-10 opacity-[0.03] hidden sm:block">
         <Quote className="w-40 h-40 text-accent" strokeWidth={1} />
       </div>
-      <div className="absolute bottom-20 right-10 opacity-[0.03] rotate-180">
+      <div className="absolute bottom-20 right-10 opacity-[0.03] rotate-180 hidden sm:block">
         <Quote className="w-40 h-40 text-accent" strokeWidth={1} />
       </div>
 
       <div className="max-w-6xl mx-auto relative">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
           <FadeIn>
-            <Badge variant="luxury" className="mb-6">{content.badge}</Badge>
+            <Badge variant="luxury" className="mb-4 sm:mb-6">{content.badge}</Badge>
           </FadeIn>
           <TextReveal
             as="h2"
-            className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight"
+            className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-4 sm:mb-6 tracking-tight"
           >
             {content.title}
           </TextReveal>
           <FadeIn delay={300}>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{content.subtitle}</p>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{content.subtitle}</p>
           </FadeIn>
         </div>
 
@@ -157,12 +157,11 @@ export function TestimonialsCarousel() {
                     className="flex-[0_0_100%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] min-w-0"
                   >
                     <motion.div
-                      className="bg-card border border-border/50 rounded-sm p-8 h-full hover:border-accent/30 transition-all duration-500 card-glow accent-line-top relative group"
+                      className="bg-card border border-border/50 rounded-sm p-5 sm:p-6 lg:p-8 h-full hover:border-accent/30 transition-all duration-500 card-glow accent-line-top relative group"
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-                      whileHover={{ y: -4 }}
                     >
                       {/* Decorative quote */}
                       <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -170,7 +169,7 @@ export function TestimonialsCarousel() {
                       </div>
 
                       {/* Stars — stagger reveal */}
-                      <div className="flex gap-1 mb-6">
+                      <div className="flex gap-1 mb-4 sm:mb-6">
                         {Array.from({ length: testimonial.stars }).map((_, j) => (
                           <motion.div
                             key={j}
@@ -191,7 +190,7 @@ export function TestimonialsCarousel() {
                       </div>
 
                       {/* Quote */}
-                      <blockquote className="text-sm leading-relaxed text-muted-foreground mb-8 italic">
+                      <blockquote className="text-xs sm:text-sm leading-relaxed text-muted-foreground mb-5 sm:mb-8 italic">
                         &ldquo;{testimonial.quote[language]}&rdquo;
                       </blockquote>
 
@@ -216,11 +215,10 @@ export function TestimonialsCarousel() {
             </div>
 
             {/* Navigation */}
-            <div className="flex items-center justify-center gap-6 mt-10">
+            <div className="flex items-center justify-center gap-4 sm:gap-6 mt-8 sm:mt-10">
               <motion.button
                 onClick={scrollPrev}
-                className="w-11 h-11 flex items-center justify-center rounded-full border border-border/50 hover:border-accent/50 hover:bg-accent/5 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
+                className="w-11 h-11 flex items-center justify-center rounded-full border border-border/50 hover:border-accent/50 hover:bg-accent/5 active:bg-accent/10 transition-all duration-300"
                 whileTap={{ scale: 0.95 }}
                 aria-label={language === "fr" ? "Témoignage précédent" : "Previous testimonial"}
               >
@@ -230,26 +228,23 @@ export function TestimonialsCarousel() {
               {/* Dots */}
               <div className="flex gap-2">
                 {testimonials.map((_, i) => (
-                  <motion.button
+                  <button
                     key={i}
                     className={cn(
-                      "h-2 rounded-full transition-all duration-300",
+                      "h-2.5 sm:h-2 rounded-full transition-all duration-300 min-w-[10px]",
                       i === selectedIndex
-                        ? "bg-accent w-6"
-                        : "bg-border w-2 hover:bg-accent/40"
+                        ? "bg-accent w-6 sm:w-6"
+                        : "bg-border w-2.5 sm:w-2 hover:bg-accent/40"
                     )}
                     onClick={() => emblaApi?.scrollTo(i)}
-                    whileHover={{ scale: 1.3 }}
                     aria-label={`Slide ${i + 1}`}
-                    layout
                   />
                 ))}
               </div>
 
               <motion.button
                 onClick={scrollNext}
-                className="w-11 h-11 flex items-center justify-center rounded-full border border-border/50 hover:border-accent/50 hover:bg-accent/5 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
+                className="w-11 h-11 flex items-center justify-center rounded-full border border-border/50 hover:border-accent/50 hover:bg-accent/5 active:bg-accent/10 transition-all duration-300"
                 whileTap={{ scale: 0.95 }}
                 aria-label={language === "fr" ? "Témoignage suivant" : "Next testimonial"}
               >

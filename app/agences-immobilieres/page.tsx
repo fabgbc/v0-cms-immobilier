@@ -48,18 +48,18 @@ export default function AgencesPage() {
 
       <main className="min-h-screen">
         {/* Hero Section - Style La Boîte Immo */}
-        <section className="relative pt-32 pb-24 px-6 lg:px-8 bg-gradient-to-br from-background via-background to-accent/5">
+        <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-background to-accent/5">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto text-center">
               <FadeIn>
-                <h1 className="text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight text-balance font-serif">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-bold tracking-tight mb-4 sm:mb-6 leading-tight text-balance font-serif">
                   Le CMS n°1 des agences immobilières
                   <br />
                   <span className="text-accent">à Saint-Barthélemy</span>
                 </h1>
               </FadeIn>
               <FadeIn delay={100}>
-                <p className="text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed font-light">
+                <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed font-light">
                   <strong className="font-semibold text-foreground">Logiciel immobilier</strong> ·{" "}
                   <strong className="font-semibold text-foreground">Conception de site internet</strong> ·{" "}
                   <strong className="font-semibold text-foreground">Outils & services métier</strong>
@@ -67,18 +67,18 @@ export default function AgencesPage() {
               </FadeIn>
 
               <FadeIn delay={200}>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10 sm:mb-16">
                   <Button
                     size="lg"
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold text-lg px-8 py-6"
+                    className="h-12 sm:h-auto bg-accent hover:bg-accent/90 text-accent-foreground font-semibold text-base sm:text-lg px-6 sm:px-8 sm:py-6"
                     asChild
                   >
                     <Link href="/contact">
                       Demander une démo
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                      <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6" />
                     </Link>
                   </Button>
-                  <Button size="lg" variant="outline" className="font-semibold text-lg px-8 py-6 bg-transparent" asChild>
+                  <Button size="lg" variant="outline" className="h-12 sm:h-auto font-semibold text-base sm:text-lg px-6 sm:px-8 sm:py-6 bg-transparent" asChild>
                     <Link href="/demo">
                       Voir la démo
                     </Link>
@@ -87,26 +87,26 @@ export default function AgencesPage() {
               </FadeIn>
 
               {/* Stats - Style La Boîte Immo */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                 <FadeIn delay={300}>
-                  <div className="bg-card border-2 border-border rounded-xl p-6 hover:border-accent transition-colors hover-lift h-full">
+                  <div className="bg-card border-2 border-border rounded-xl p-4 sm:p-6 hover:border-accent transition-colors hover-lift h-full">
                     <StatCard value={21} label="jours pour lancer" valueClassName="text-accent" />
                   </div>
                 </FadeIn>
                 <FadeIn delay={400}>
-                  <div className="bg-card border-2 border-border rounded-xl p-6 hover:border-accent transition-colors hover-lift h-full">
+                  <div className="bg-card border-2 border-border rounded-xl p-4 sm:p-6 hover:border-accent transition-colors hover-lift h-full">
                     <StatCard value={10} suffix="+" label="agences équipées" valueClassName="text-accent" />
                   </div>
                 </FadeIn>
                 <FadeIn delay={500}>
-                  <div className="bg-card border-2 border-border rounded-xl p-6 hover:border-accent transition-colors hover-lift h-full">
+                  <div className="bg-card border-2 border-border rounded-xl p-4 sm:p-6 hover:border-accent transition-colors hover-lift h-full">
                     <StatCard value={100} suffix="%" label="personnalisable" valueClassName="text-accent" />
                   </div>
                 </FadeIn>
                 <FadeIn delay={600}>
-                  <div className="bg-card border-2 border-border rounded-xl p-6 hover:border-accent transition-colors hover-lift h-full">
-                    <div className="font-serif text-4xl lg:text-5xl font-medium mb-2 text-accent">IA</div>
-                    <div className="text-sm text-muted-foreground">embarquée</div>
+                  <div className="bg-card border-2 border-border rounded-xl p-4 sm:p-6 hover:border-accent transition-colors hover-lift h-full">
+                    <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-2 text-accent">IA</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">embarquée</div>
                   </div>
                 </FadeIn>
               </div>
@@ -115,47 +115,47 @@ export default function AgencesPage() {
         </section>
 
         {/* Value Proposition - Alternating sections */}
-        <section className="py-20 px-6 lg:px-8 bg-accent/5">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-accent/5">
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               <FadeIn direction="left">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full mb-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full mb-4 sm:mb-6">
                     <Rocket className="h-4 w-4 text-accent" />
-                    <span className="text-sm font-medium text-accent">logiciel immo</span>
+                    <span className="text-xs sm:text-sm font-medium text-accent">logiciel immo</span>
                   </div>
-                  <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight leading-tight font-serif">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight font-serif">
                     Un site immobilier aussi puissant qu'une plateforme sur-mesure,{" "}
                     <span className="text-accent">prêt en 21 jours</span>
                   </h2>
-                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-base sm:text-lg text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
                     Créer un site immobilier performant à Saint-Barthélemy est aujourd'hui un véritable défi. Entre la
                     complexité des tarifs, la gestion des saisons, les OTAs, le référencement, la performance et le design
                     haut de gamme attendu par une clientèle internationale, les projets prennent souvent des mois — pour
                     un résultat parfois décevant.
                   </p>
-                  <p className="text-lg font-semibold mb-8">Nous avons fait un autre choix.</p>
-                  <Button size="lg" className="bg-accent hover:bg-accent/90">
+                  <p className="text-base sm:text-lg font-semibold mb-6 sm:mb-8">Nous avons fait un autre choix.</p>
+                  <Button size="lg" className="h-12 sm:h-auto bg-accent hover:bg-accent/90">
                     Découvrir la solution
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6" />
                   </Button>
                 </div>
               </FadeIn>
               <FadeIn direction="right" delay={200}>
                 <div className="relative">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl p-8 flex items-center justify-center">
-                    <div className="grid grid-cols-2 gap-4 w-full">
-                      <div className="bg-background rounded-lg p-4 shadow-lg hover-lift">
-                        <div className="text-2xl font-bold text-accent mb-1">appli mobile</div>
-                        <div className="text-sm text-muted-foreground">Gérez partout</div>
+                  <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl p-4 sm:p-6 lg:p-8 flex items-center justify-center">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full">
+                      <div className="bg-background rounded-lg p-3 sm:p-4 shadow-lg hover-lift">
+                        <div className="text-lg sm:text-2xl font-bold text-accent mb-1">appli mobile</div>
+                        <div className="text-xs sm:text-sm text-muted-foreground">Gérez partout</div>
                       </div>
-                      <div className="bg-background rounded-lg p-4 shadow-lg hover-lift">
-                        <div className="text-2xl font-bold text-accent mb-1">gestion agence</div>
-                        <div className="text-sm text-muted-foreground">Tout centralisé</div>
+                      <div className="bg-background rounded-lg p-3 sm:p-4 shadow-lg hover-lift">
+                        <div className="text-lg sm:text-2xl font-bold text-accent mb-1">gestion agence</div>
+                        <div className="text-xs sm:text-sm text-muted-foreground">Tout centralisé</div>
                       </div>
-                      <div className="bg-background rounded-lg p-4 shadow-lg col-span-2 hover-lift">
-                        <div className="text-2xl font-bold text-accent mb-1">IA embarquée</div>
-                        <div className="text-sm text-muted-foreground">Rédaction automatique</div>
+                      <div className="bg-background rounded-lg p-3 sm:p-4 shadow-lg col-span-2 hover-lift">
+                        <div className="text-lg sm:text-2xl font-bold text-accent mb-1">IA embarquée</div>
+                        <div className="text-xs sm:text-sm text-muted-foreground">Rédaction automatique</div>
                       </div>
                     </div>
                   </div>
@@ -166,27 +166,27 @@ export default function AgencesPage() {
         </section>
 
         {/* Features Grid - Style La Boîte Immo */}
-        <section className="py-20 px-6 lg:px-8">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <FadeIn>
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight font-serif">
+              <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight font-serif">
                   Ce qui change concrètement pour votre agence
                 </h2>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
                   Une plateforme complète qui répond à tous vos besoins métier
                 </p>
               </div>
             </FadeIn>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {/* Feature 1 */}
               <Card className="border-2 hover:border-accent transition-all hover:shadow-lg group">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <Rocket className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                    <Rocket className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="font-bold text-xl mb-3">Lancement express en 21 jours</h3>
+                  <h3 className="font-bold text-lg sm:text-xl mb-3">Lancement express en 21 jours</h3>
                   <ul className="space-y-2.5 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
@@ -206,11 +206,11 @@ export default function AgencesPage() {
 
               {/* Feature 2 */}
               <Card className="border-2 hover:border-accent transition-all hover:shadow-lg group">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <Home className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                    <Home className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="font-bold text-xl mb-3">Gestion des villas ultra fluide</h3>
+                  <h3 className="font-bold text-lg sm:text-xl mb-3">Gestion des villas ultra fluide</h3>
                   <ul className="space-y-2.5 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
@@ -230,11 +230,11 @@ export default function AgencesPage() {
 
               {/* Feature 3 */}
               <Card className="border-2 hover:border-accent transition-all hover:shadow-lg group">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <Euro className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                    <Euro className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="font-bold text-xl mb-3">Tarifs adaptés à Saint-Barth</h3>
+                  <h3 className="font-bold text-lg sm:text-xl mb-3">Tarifs adaptés à Saint-Barth</h3>
                   <ul className="space-y-2.5 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
@@ -254,11 +254,11 @@ export default function AgencesPage() {
 
               {/* Feature 4 */}
               <Card className="border-2 hover:border-accent transition-all hover:shadow-lg group">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <TrendingUp className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                    <TrendingUp className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="font-bold text-xl mb-3">Avantage concurrentiel SEO</h3>
+                  <h3 className="font-bold text-lg sm:text-xl mb-3">Avantage concurrentiel SEO</h3>
                   <ul className="space-y-2.5 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
@@ -278,11 +278,11 @@ export default function AgencesPage() {
 
               {/* Feature 5 */}
               <Card className="border-2 hover:border-accent transition-all hover:shadow-lg group">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <Palette className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                    <Palette className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="font-bold text-xl mb-3">Design unique pour chaque agence</h3>
+                  <h3 className="font-bold text-lg sm:text-xl mb-3">Design unique pour chaque agence</h3>
                   <ul className="space-y-2.5 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
@@ -302,11 +302,11 @@ export default function AgencesPage() {
 
               {/* Feature 6 */}
               <Card className="border-2 hover:border-accent transition-all hover:shadow-lg group">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <Brain className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                    <Brain className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="font-bold text-xl mb-3">Intelligence Artificielle embarquée</h3>
+                  <h3 className="font-bold text-lg sm:text-xl mb-3">Intelligence Artificielle embarquée</h3>
                   <ul className="space-y-2.5 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
@@ -326,11 +326,11 @@ export default function AgencesPage() {
 
               {/* Feature 7 */}
               <Card className="border-2 hover:border-accent transition-all hover:shadow-lg group">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <MessageSquare className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                    <MessageSquare className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="font-bold text-xl mb-3">Réservations centralisées</h3>
+                  <h3 className="font-bold text-lg sm:text-xl mb-3">Réservations centralisées</h3>
                   <ul className="space-y-2.5 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
@@ -350,11 +350,11 @@ export default function AgencesPage() {
 
               {/* Feature 8 */}
               <Card className="border-2 hover:border-accent transition-all hover:shadow-lg group">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <Shield className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                    <Shield className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="font-bold text-xl mb-3">Solution éprouvée et stable</h3>
+                  <h3 className="font-bold text-lg sm:text-xl mb-3">Solution éprouvée et stable</h3>
                   <ul className="space-y-2.5 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
@@ -374,11 +374,11 @@ export default function AgencesPage() {
 
               {/* Feature 9 */}
               <Card className="border-2 hover:border-accent transition-all hover:shadow-lg group">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <Wrench className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                    <Wrench className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="font-bold text-xl mb-3">Support & accompagnement</h3>
+                  <h3 className="font-bold text-lg sm:text-xl mb-3">Support & accompagnement</h3>
                   <ul className="space-y-2.5 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
@@ -400,24 +400,24 @@ export default function AgencesPage() {
         </section>
 
         {/* Before/After Comparison Section */}
-        <section className="py-20 px-6 lg:px-8 bg-muted/30">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <Badge className="mb-4">Comparaison</Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight">Avant / Après notre CMS</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+              <Badge className="mb-4 sm:mb-6">Comparaison</Badge>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">Avant / Après notre CMS</h2>
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
                 Voyez concrètement ce qui change pour votre agence
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
               {/* AVANT Column */}
-              <div className="bg-destructive/5 border border-destructive/20 rounded-2xl p-8">
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 bg-destructive/10 rounded-xl flex items-center justify-center">
-                    <X className="h-6 w-6 text-destructive" />
+              <div className="bg-destructive/5 border border-destructive/20 rounded-2xl p-5 sm:p-6 lg:p-8">
+                <div className="flex items-center gap-3 mb-6 sm:mb-8">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-destructive/10 rounded-xl flex items-center justify-center">
+                    <X className="h-5 w-5 sm:h-6 sm:w-6 text-destructive" />
                   </div>
-                  <h3 className="text-2xl font-bold">AVANT</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold">AVANT</h3>
                 </div>
 
                 <div className="space-y-6">
@@ -512,12 +512,12 @@ export default function AgencesPage() {
               </div>
 
               {/* APRÈS Column */}
-              <div className="bg-accent/5 border border-accent/20 rounded-2xl p-8">
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                    <Check className="h-6 w-6 text-accent" />
+              <div className="bg-accent/5 border border-accent/20 rounded-2xl p-5 sm:p-6 lg:p-8">
+                <div className="flex items-center gap-3 mb-6 sm:mb-8">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                    <Check className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                   </div>
-                  <h3 className="text-2xl font-bold">APRÈS</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold">APRÈS</h3>
                 </div>
 
                 <div className="space-y-6">
@@ -662,25 +662,25 @@ export default function AgencesPage() {
         </section>
 
         {/* Osez le changement - Remplacé section équipe par "Osez le changement" avec deux colonnes */}
-        <section className="py-20 px-6 lg:px-8 bg-accent/5">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-accent/5">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <Badge className="mb-4">Osez le changement</Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight">Votre situation, notre solution</h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+              <Badge className="mb-4 sm:mb-6">Osez le changement</Badge>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">Votre situation, notre solution</h2>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
                 Que vous ayez déjà un site ou non, nous avons la solution parfaite pour votre agence
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
               {/* Colonne Gauche - J'ai déjà un site */}
               <Card className="border-2 hover:border-accent/50 transition-all rounded-2xl overflow-hidden">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-6">
-                    <RefreshCcw className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+                    <RefreshCcw className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">J'ai déjà un site internet</h3>
-                  <p className="text-muted-foreground mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">J'ai déjà un site internet</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
                     Migrer vers notre CMS est une opportunité stratégique pour moderniser votre agence sans perdre vos
                     acquis
                   </p>
@@ -745,12 +745,12 @@ export default function AgencesPage() {
 
               {/* Colonne Droite - Pourquoi passer avec nous */}
               <Card className="border-2 hover:border-accent/50 transition-all rounded-2xl overflow-hidden bg-accent/5">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-6">
-                    <Sparkles className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+                    <Sparkles className="h-5 w-5 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Pourquoi passer avec nous</h3>
-                  <p className="text-muted-foreground mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Pourquoi passer avec nous</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
                     Un site web professionnel est indispensable pour votre agence. Voici pourquoi nous sommes le
                     meilleur choix
                   </p>
@@ -835,19 +835,19 @@ export default function AgencesPage() {
         </section>
 
         {/* Agencies Portfolio */}
-        <section className="py-20 px-6 lg:px-8">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <Badge className="mb-4">Nos Réalisations</Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
+            <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+              <Badge className="mb-4 sm:mb-6">Nos Réalisations</Badge>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
                 Agences qui nous ont fait confiance
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
                 Découvrez les sites que nous avons créés pour les principales agences de Saint-Barthélemy
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
               {/* Agency Cards */}
               {[
                 {
@@ -946,12 +946,12 @@ export default function AgencesPage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                       <div className="w-full h-full bg-accent/5" />
                     </div>
-                    <CardContent className="p-6">
+                    <CardContent className="p-4 sm:p-5 lg:p-6">
                       <div className="flex items-start justify-between mb-2">
-                        <h3 className="font-bold text-lg group-hover:text-accent transition-colors">{agency.name}</h3>
-                        <span className="text-sm text-muted-foreground whitespace-nowrap ml-2">Saint Barth</span>
+                        <h3 className="font-bold text-base sm:text-lg group-hover:text-accent transition-colors">{agency.name}</h3>
+                        <span className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap ml-2">Saint Barth</span>
                       </div>
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{agency.description}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4 line-clamp-2">{agency.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {agency.tags.map((tag, tagIndex) => (
                           <span
@@ -971,27 +971,27 @@ export default function AgencesPage() {
         </section>
 
         {/* CTA Section - Style La Boîte Immo */}
-        <section className="py-20 px-6 lg:px-8 bg-gradient-to-br from-accent via-accent to-accent/80">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-accent via-accent to-accent/80">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-accent-foreground tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-accent-foreground tracking-tight">
               Vous n'achetez pas un site,
               <br />
               vous accédez à une plateforme métier
             </h2>
-            <p className="text-xl text-accent-foreground/90 mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-accent-foreground/90 mb-6 sm:mb-8 leading-relaxed">
               Prêt à transformer votre présence en ligne et doubler vos demandes de réservation ?
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="font-semibold text-lg px-8 py-6" asChild>
+              <Button size="lg" variant="secondary" className="h-12 sm:h-auto font-semibold text-base sm:text-lg px-6 sm:px-8 sm:py-6" asChild>
                 <Link href="/contact">
                   Demander une démo
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6" />
                 </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-2 border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10 font-semibold text-lg px-8 py-6"
+                className="h-12 sm:h-auto bg-transparent border-2 border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10 font-semibold text-base sm:text-lg px-6 sm:px-8 sm:py-6"
                 asChild
               >
                 <Link href="/contact">Nous contacter</Link>

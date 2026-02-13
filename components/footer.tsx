@@ -56,24 +56,21 @@ export function Footer() {
       {/* Subtle shimmer */}
       <div className="absolute inset-0 shimmer-gold opacity-10" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative">
         {/* Upper section with logo and CTA */}
         <motion.div
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-12 border-b border-white/10"
+          className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-14 lg:mb-16 pb-8 sm:pb-10 lg:pb-12 border-b border-white/10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >
-          <div>
-            <Link href="/" className="flex items-center gap-3 mb-4 group">
-              <motion.div
-                whileHover={{ rotate: 6, scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              >
+          <div className="min-w-0">
+            <Link href="/" className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4 group">
+              <div className="shrink-0">
                 <Logo />
-              </motion.div>
-              <span className="text-xl font-serif font-medium">Saint-Barth Villas</span>
+              </div>
+              <span className="text-lg sm:text-xl font-serif font-medium truncate">Saint-Barth Villas</span>
             </Link>
             <p className="text-primary-foreground/70 max-w-md text-sm leading-relaxed">
               {language === "fr"
@@ -82,23 +79,19 @@ export function Footer() {
             </p>
           </div>
 
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="mt-6 md:mt-0"
-          >
-            <Button variant="outline-luxury" className="border-accent/50 text-accent hover:bg-accent hover:text-primary group" asChild>
+          <div className="mt-5 sm:mt-0 shrink-0">
+            <Button variant="outline-luxury" className="border-accent/50 text-accent hover:bg-accent hover:text-primary group w-full sm:w-auto h-12 sm:h-auto" asChild>
               <Link href="/contact">
                 {t.cta}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-          </motion.div>
+          </div>
         </motion.div>
 
         {/* Navigation grid */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-12"
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 lg:gap-12"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -106,13 +99,13 @@ export function Footer() {
         >
           {/* Solutions */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-label-luxury text-accent mb-6">{t.solutionsLabel}</h3>
-            <ul className="space-y-4">
+            <h3 className="text-label-luxury text-accent mb-4 sm:mb-6">{t.solutionsLabel}</h3>
+            <ul className="space-y-3 sm:space-y-4">
               {t.solutions.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-accent transition-colors underline-luxury"
+                    className="text-sm text-primary-foreground/70 hover:text-accent active:text-accent transition-colors py-1 inline-block"
                   >
                     {link.label}
                   </Link>
@@ -123,13 +116,13 @@ export function Footer() {
 
           {/* Ressources */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-label-luxury text-accent mb-6">{t.resourcesLabel}</h3>
-            <ul className="space-y-4">
+            <h3 className="text-label-luxury text-accent mb-4 sm:mb-6">{t.resourcesLabel}</h3>
+            <ul className="space-y-3 sm:space-y-4">
               {t.resources.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-accent transition-colors underline-luxury"
+                    className="text-sm text-primary-foreground/70 hover:text-accent active:text-accent transition-colors py-1 inline-block"
                   >
                     {link.label}
                   </Link>
@@ -140,12 +133,12 @@ export function Footer() {
 
           {/* Contact */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-label-luxury text-accent mb-6">{t.contactLabel}</h3>
-            <ul className="space-y-4">
+            <h3 className="text-label-luxury text-accent mb-4 sm:mb-6">{t.contactLabel}</h3>
+            <ul className="space-y-3 sm:space-y-4">
               <li>
                 <a
                   href="mailto:contact@pandhiweb.com"
-                  className="text-sm text-primary-foreground/70 hover:text-accent transition-colors"
+                  className="text-sm text-primary-foreground/70 hover:text-accent active:text-accent transition-colors py-1 inline-block break-all"
                 >
                   contact@pandhiweb.com
                 </a>
@@ -153,7 +146,7 @@ export function Footer() {
               <li>
                 <a
                   href="tel:+590590278888"
-                  className="text-sm text-primary-foreground/70 hover:text-accent transition-colors"
+                  className="text-sm text-primary-foreground/70 hover:text-accent active:text-accent transition-colors py-1 inline-block"
                 >
                   +590 590 27 88 88
                 </a>
@@ -163,7 +156,7 @@ export function Footer() {
 
           {/* Saint-Barth */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-label-luxury text-accent mb-6">{t.locationLabel}</h3>
+            <h3 className="text-label-luxury text-accent mb-4 sm:mb-6">{t.locationLabel}</h3>
             <p className="text-sm text-primary-foreground/70 leading-relaxed">
               Gustavia, Saint-Barthélemy<br />
               97133, Antilles françaises
@@ -173,23 +166,23 @@ export function Footer() {
 
         {/* Bottom bar */}
         <motion.div
-          className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4"
+          className="mt-10 sm:mt-14 lg:mt-16 pt-6 sm:pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <p className="text-xs text-primary-foreground/60 tracking-wide">
+          <p className="text-xs sm:text-sm text-primary-foreground/60 tracking-wide">
             © {new Date().getFullYear()} Saint-Barth Villas. {t.rights}
           </p>
-          <div className="flex gap-8">
-            <Link href="/mentions-legales" className="text-xs text-primary-foreground/60 hover:text-accent transition-colors focus-visible:text-accent focus-visible:outline-none">
+          <div className="flex gap-6 sm:gap-8">
+            <Link href="/mentions-legales" className="text-xs sm:text-sm text-primary-foreground/60 hover:text-accent active:text-accent transition-colors py-1">
               Mentions légales
             </Link>
-            <Link href="/confidentialite" className="text-xs text-primary-foreground/60 hover:text-accent transition-colors focus-visible:text-accent focus-visible:outline-none">
+            <Link href="/confidentialite" className="text-xs sm:text-sm text-primary-foreground/60 hover:text-accent active:text-accent transition-colors py-1">
               Confidentialité
             </Link>
-            <Link href="/cgv" className="text-xs text-primary-foreground/60 hover:text-accent transition-colors focus-visible:text-accent focus-visible:outline-none">
+            <Link href="/cgv" className="text-xs sm:text-sm text-primary-foreground/60 hover:text-accent active:text-accent transition-colors py-1">
               CGV
             </Link>
           </div>

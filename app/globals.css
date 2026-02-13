@@ -163,11 +163,24 @@
 }
 
 @layer base {
-  * {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
     @apply border-border outline-ring/50;
+  }
+  html {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -200,10 +213,16 @@
 }
 
 .text-label-luxury {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+  .text-label-luxury {
+    font-size: 0.75rem;
+  }
 }
 
 /* Luxury Transitions & Animations */
@@ -330,6 +349,7 @@
   );
   background-size: 200% 100%;
   animation: shimmer 8s ease-in-out infinite;
+  will-change: background-position;
 }
 
 /* Floating decorative elements */
@@ -341,11 +361,13 @@
 
 .float-slow {
   animation: float 6s ease-in-out infinite;
+  will-change: transform;
 }
 
 .float-medium {
   animation: float 4s ease-in-out infinite;
   animation-delay: -2s;
+  will-change: transform;
 }
 
 /* Gradient text for accent headings */
@@ -379,6 +401,38 @@
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
+}
+
+/* Safe area for iPhone notch/dynamic island */
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Touch-friendly interactive elements */
+button,
+a,
+input,
+select,
+textarea,
+[role="button"],
+[role="tab"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Mobile-optimized animations — reduce on small screens */
+@media (max-width: 768px) {
+  .shimmer-gold {
+    animation-duration: 12s;
+  }
+  .float-slow,
+  .float-medium {
+    animation: none;
+  }
+  .pulse-accent {
+    animation: none;
+  }
 }
 
 /* Subtle noise/grain texture for luxury sections */

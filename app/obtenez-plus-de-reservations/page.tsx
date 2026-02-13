@@ -77,16 +77,16 @@ export default function ObtienezPlusReservationsPage() {
 
       <main className="min-h-screen">
         {/* Hero */}
-        <section className="pt-32 pb-20 px-6 lg:px-8">
+        <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <FadeIn>
-              <Badge variant="luxury" className="mb-6">Stratégies éprouvées</Badge>
-              <h1 className="font-serif text-5xl lg:text-6xl font-medium tracking-tight mb-6 leading-[1.1] text-balance">
+              <Badge variant="luxury" className="mb-4 sm:mb-6">Stratégies éprouvées</Badge>
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-4 sm:mb-6 leading-[1.1] text-balance">
                 Obtenez plus de réservations directes
               </h1>
             </FadeIn>
             <FadeIn delay={100}>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-4 sm:mb-6 leading-relaxed max-w-3xl mx-auto">
                 Guides pratiques et stratégies concrètes pour maximiser la visibilité de vos villas et augmenter vos
                 réservations sans commission.
               </p>
@@ -95,22 +95,22 @@ export default function ObtienezPlusReservationsPage() {
         </section>
 
         {/* Stratégies clés */}
-        <section className="py-24 px-6 lg:px-8 bg-muted/30">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <div className="max-w-6xl mx-auto">
-            <FadeIn className="text-center mb-16">
-              <h2 className="font-serif text-3xl lg:text-4xl font-medium tracking-tight mb-4">
+            <FadeIn className="text-center mb-10 sm:mb-14 lg:mb-16">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-4">
                 Pourquoi les réservations directes changent tout
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
                 Trois leviers concrets pour reprendre le contrôle de votre activité.
               </p>
             </FadeIn>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
               {strategies.map((strategy, i) => (
                 <FadeIn key={i} delay={i * 100}>
                   <Card className="border border-border/50 rounded-sm hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover-lift h-full">
-                    <CardContent className="p-8">
+                    <CardContent className="p-5 sm:p-6 lg:p-8">
                       <div className="w-12 h-12 bg-accent/10 flex items-center justify-center mb-6">
                         <strategy.icon className="h-6 w-6 text-accent" />
                       </div>
@@ -129,18 +129,18 @@ export default function ObtienezPlusReservationsPage() {
         </section>
 
         {/* Articles / Guides */}
-        <section className="py-24 px-6 lg:px-8">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <FadeIn className="mb-16">
-              <h2 className="font-serif text-3xl lg:text-4xl font-medium tracking-tight mb-4">
+            <FadeIn className="mb-10 sm:mb-14 lg:mb-16">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-4">
                 Guides pratiques
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground">
                 Les ressources essentielles pour transformer votre site en machine à réservations.
               </p>
             </FadeIn>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {articles.map((article, i) => (
                 <FadeIn key={i} delay={i * 100}>
                   <Card className="border border-border/50 rounded-sm hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover-lift h-full group">
@@ -148,7 +148,7 @@ export default function ObtienezPlusReservationsPage() {
                       <div className="aspect-[16/9] bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
                         <article.icon className="h-10 w-10 text-accent/40" />
                       </div>
-                      <div className="p-6">
+                      <div className="p-5 sm:p-6">
                         <div className="flex items-center gap-3 mb-4">
                           <span className="text-xs font-medium text-accent bg-accent/10 px-2.5 py-1 rounded-sm">
                             {article.category}
@@ -180,20 +180,20 @@ export default function ObtienezPlusReservationsPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-24 px-6 lg:px-8 bg-primary text-primary-foreground relative overflow-hidden">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,var(--accent)_0%,transparent_50%)] opacity-10" />
           <div className="max-w-4xl mx-auto text-center relative">
             <FadeIn>
-              <div className="luxury-divider mb-8" />
-              <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight">
+              <div className="luxury-divider mb-4 sm:mb-8" />
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-4 sm:mb-6 tracking-tight">
                 Prêt à appliquer ces stratégies ?
               </h2>
-              <p className="text-xl text-primary-foreground/80 mb-10 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg lg:text-xl text-primary-foreground/80 mb-8 sm:mb-10 leading-relaxed max-w-2xl mx-auto">
                 Notre CMS intègre automatiquement le SEO, la tarification dynamique et les outils de conversion.
                 Concentrez-vous sur vos locations, nous gérons la technique.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="luxury" asChild>
+                <Button size="lg" variant="luxury" className="h-12 sm:h-auto" asChild>
                   <Link href="/contact">
                     Demander une démo
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -202,7 +202,7 @@ export default function ObtienezPlusReservationsPage() {
                 <Button
                   size="lg"
                   variant="outline-luxury"
-                  className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
+                  className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 h-12 sm:h-auto"
                   asChild
                 >
                   <Link href="/features">Voir les fonctionnalités</Link>

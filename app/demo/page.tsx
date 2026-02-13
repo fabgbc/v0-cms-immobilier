@@ -39,21 +39,21 @@ export default function DemoPage() {
 
       <main id="main-content" className="min-h-screen">
         {/* Hero */}
-        <section className="pt-32 pb-12 px-6 lg:px-8">
+        <section className="pt-24 sm:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <FadeIn className="text-center mb-12">
-              <Badge variant="luxury" className="mb-6">
+            <FadeIn className="text-center mb-10 sm:mb-12">
+              <Badge variant="luxury" className="mb-4 sm:mb-6">
                 <Play className="w-3.5 h-3.5 mr-1.5 fill-accent text-accent" />
                 {content.badge}
               </Badge>
-              <h1 className="font-serif text-4xl lg:text-6xl font-medium mb-6 tracking-tight">{content.title}</h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{content.subtitle}</p>
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-4 sm:mb-6 tracking-tight">{content.title}</h1>
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{content.subtitle}</p>
             </FadeIn>
           </div>
         </section>
 
         {/* Demo */}
-        <section className="px-6 lg:px-8 pb-28">
+        <section className="px-4 sm:px-6 lg:px-8 pb-16 sm:pb-28">
           <div className="max-w-6xl mx-auto">
             <FadeIn delay={200}>
               <CmsDemo />
@@ -62,13 +62,13 @@ export default function DemoPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-24 px-6 lg:px-8 bg-primary text-primary-foreground relative overflow-hidden">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,var(--accent)_0%,transparent_50%)] opacity-10" />
           <FadeIn className="max-w-4xl mx-auto text-center relative">
-            <div className="luxury-divider mb-8" />
-            <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight">{content.ctaTitle}</h2>
-            <p className="text-xl mb-10 text-primary-foreground/80">{content.ctaSubtitle}</p>
-            <Button size="xl" variant="luxury" className="text-lg" asChild>
+            <div className="luxury-divider mb-4 sm:mb-8" />
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-4 sm:mb-6 tracking-tight">{content.ctaTitle}</h2>
+            <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-10 text-primary-foreground/80">{content.ctaSubtitle}</p>
+            <Button size="xl" variant="luxury" className="text-base sm:text-lg h-12 sm:h-auto" asChild>
               <Link href="/contact">
                 {content.ctaButton}
                 <ArrowRight className="ml-2 h-5 w-5" />

@@ -46,14 +46,13 @@ export const scaleBlurIn: Variants = {
   },
 }
 
-// Text reveal — for word-by-word animation
+// Text reveal — for word-by-word animation (translateY only for mobile perf)
 export const textRevealWord: Variants = {
-  hidden: { opacity: 0, y: 20, rotateX: 40 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    rotateX: 0,
-    transition: { duration: 0.5, ease: luxuryEase },
+    transition: { duration: 0.4, ease: luxuryEase },
   },
 }
 

@@ -59,19 +59,19 @@ export default function ContactPage() {
       <>
         <Navigation />
         <main className="pt-16 min-h-screen">
-          <section className="py-32 px-6 lg:px-8">
+          <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mx-auto text-center">
               <FadeIn>
-                <div className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-8">
+                <div className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
                   <CheckCircle2 className="w-10 h-10 text-green-500" />
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 font-serif">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 sm:mb-6 font-serif">
                   Demande envoyée !
                 </h1>
-                <p className="text-lg text-muted-foreground mb-8">
+                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-4 sm:mb-6">
                   Merci pour votre intérêt. Nous vous recontacterons dans les 24 heures pour organiser votre démonstration personnalisée.
                 </p>
-                <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground h-12 sm:h-auto">
                   <a href="/">Retour à l'accueil</a>
                 </Button>
               </FadeIn>
@@ -88,16 +88,16 @@ export default function ContactPage() {
       <Navigation />
       <main className="pt-16 min-h-screen">
         {/* Hero */}
-        <section className="py-24 bg-gradient-to-b from-background to-muted/20">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+        <section className="py-16 sm:py-24 lg:py-28 bg-gradient-to-b from-background to-muted/20">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <FadeIn>
-              <Badge className="mb-6 bg-accent/10 text-accent border-accent/20">Contact</Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 font-serif">
+              <Badge className="mb-4 sm:mb-6 bg-accent/10 text-accent border-accent/20">Contact</Badge>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 sm:mb-6 font-serif">
                 Demander une démo
               </h1>
             </FadeIn>
             <FadeIn delay={100}>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Découvrez comment notre CMS peut transformer votre activité immobilière à Saint-Barthélemy.
                 Remplissez le formulaire et nous vous recontacterons sous 24h.
               </p>
@@ -106,14 +106,14 @@ export default function ContactPage() {
         </section>
 
         {/* Form Section */}
-        <section className="py-20 px-6 lg:px-8">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-5 gap-12">
+            <div className="grid lg:grid-cols-5 gap-8 sm:gap-12">
               {/* Form */}
               <div className="lg:col-span-3">
                 <FadeIn>
                   <Card className="border-2">
-                    <CardContent className="p-8">
+                    <CardContent className="p-5 sm:p-6 lg:p-8">
                       <form
                         name="contact"
                         method="POST"
@@ -128,7 +128,7 @@ export default function ContactPage() {
                             Ne remplissez pas ce champ : <input name="bot-field" />
                           </label>
                         </p>
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                           <div>
                             <label htmlFor="name" className="block text-sm font-medium mb-2">
                               Nom complet <span className="text-accent">*</span>
@@ -138,9 +138,10 @@ export default function ContactPage() {
                               id="name"
                               name="name"
                               required
+                              autoComplete="name"
                               value={formData.name}
                               onChange={handleChange}
-                              className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+                              className="w-full px-4 py-3 text-base rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors min-h-[48px]"
                               placeholder="Votre nom"
                             />
                           </div>
@@ -153,15 +154,17 @@ export default function ContactPage() {
                               id="email"
                               name="email"
                               required
+                              inputMode="email"
+                              autoComplete="email"
                               value={formData.email}
                               onChange={handleChange}
-                              className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+                              className="w-full px-4 py-3 text-base rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors min-h-[48px]"
                               placeholder="votre@email.com"
                             />
                           </div>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                           <div>
                             <label htmlFor="phone" className="block text-sm font-medium mb-2">
                               Téléphone
@@ -170,9 +173,11 @@ export default function ContactPage() {
                               type="tel"
                               id="phone"
                               name="phone"
+                              inputMode="tel"
+                              autoComplete="tel"
                               value={formData.phone}
                               onChange={handleChange}
-                              className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+                              className="w-full px-4 py-3 text-base rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors min-h-[48px]"
                               placeholder="+590 690 00 00 00"
                             />
                           </div>
@@ -184,9 +189,10 @@ export default function ContactPage() {
                               type="text"
                               id="company"
                               name="company"
+                              autoComplete="organization"
                               value={formData.company}
                               onChange={handleChange}
-                              className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+                              className="w-full px-4 py-3 text-base rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors min-h-[48px]"
                               placeholder="Ex: Villa Paradis"
                             />
                           </div>
@@ -202,7 +208,7 @@ export default function ContactPage() {
                             required
                             value={formData.type}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+                            className="w-full px-4 py-3 text-base rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors min-h-[48px]"
                           >
                             <option value="proprietaire">Propriétaire de villa</option>
                             <option value="agence">Agence immobilière</option>
@@ -220,7 +226,7 @@ export default function ContactPage() {
                             rows={4}
                             value={formData.message}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors resize-none"
+                            className="w-full px-4 py-3 text-base rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors resize-none"
                             placeholder="Parlez-nous de votre projet, vos besoins, vos questions..."
                           />
                         </div>
@@ -228,7 +234,7 @@ export default function ContactPage() {
                         <Button
                           type="submit"
                           size="lg"
-                          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+                          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold h-12 sm:h-auto"
                           disabled={isSubmitting}
                         >
                           {isSubmitting ? (
@@ -261,9 +267,9 @@ export default function ContactPage() {
               {/* Contact Info */}
               <div className="lg:col-span-2">
                 <FadeIn delay={200}>
-                  <div className="space-y-8">
+                  <div className="space-y-6 sm:space-y-8">
                     <div>
-                      <h2 className="text-2xl font-bold mb-6 font-serif">Informations de contact</h2>
+                      <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 font-serif">Informations de contact</h2>
                       <div className="space-y-4">
                         <div className="flex items-start gap-4">
                           <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">

@@ -55,13 +55,13 @@ export default function FAQPage() {
       <Navigation />
       <main className="pt-16">
         {/* Hero */}
-        <section className="py-24 bg-gradient-to-b from-background to-muted/20">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-background to-muted/20">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <FadeIn>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 font-serif">{content.title}</h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 sm:mb-6 font-serif">{content.title}</h1>
             </FadeIn>
             <FadeIn delay={100}>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 {content.subtitle}
               </p>
             </FadeIn>
@@ -70,58 +70,58 @@ export default function FAQPage() {
 
         {/* Tabs */}
         <section className="border-b border-border sticky top-16 bg-background z-40">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8">
-            <div className="flex gap-2 overflow-x-auto" role="tablist" aria-label={language === "fr" ? "Catégories de questions" : "Question categories"}>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex gap-1 sm:gap-2 overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0" role="tablist" aria-label={language === "fr" ? "Catégories de questions" : "Question categories"}>
               <button
                 role="tab"
                 aria-selected={activeTab === "most-asked"}
                 onClick={() => setActiveTab("most-asked")}
-                className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-sm sm:text-base font-medium transition-colors border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   activeTab === "most-asked"
                     ? "border-accent text-accent"
                     : "border-transparent text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <Star className="w-4 h-4" />
+                <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 {content.tabs.mostAsked}
               </button>
               <button
                 role="tab"
                 aria-selected={activeTab === "general"}
                 onClick={() => setActiveTab("general")}
-                className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-sm sm:text-base font-medium transition-colors border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   activeTab === "general"
                     ? "border-accent text-accent"
                     : "border-transparent text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <HelpCircle className="w-4 h-4" />
+                <HelpCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 {content.tabs.general}
               </button>
               <button
                 role="tab"
                 aria-selected={activeTab === "owners"}
                 onClick={() => setActiveTab("owners")}
-                className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-sm sm:text-base font-medium transition-colors border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   activeTab === "owners"
                     ? "border-accent text-accent"
                     : "border-transparent text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <Home className="w-4 h-4" />
+                <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 {content.tabs.owners}
               </button>
               <button
                 role="tab"
                 aria-selected={activeTab === "agencies"}
                 onClick={() => setActiveTab("agencies")}
-                className={`flex items-center gap-2 px-6 py-4 whitespace-nowrap font-medium transition-colors border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-sm sm:text-base font-medium transition-colors border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   activeTab === "agencies"
                     ? "border-accent text-accent"
                     : "border-transparent text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <Building2 className="w-4 h-4" />
+                <Building2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 {content.tabs.agencies}
               </button>
             </div>
@@ -130,10 +130,10 @@ export default function FAQPage() {
 
         {/* Questions les plus posées */}
         {activeTab === "most-asked" && (
-          <section className="py-20">
-            <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <section className="py-16 sm:py-24 lg:py-28">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <Accordion type="single" collapsible className="space-y-4">
-                <AccordionItem value="most-1" className="border border-border rounded-lg px-6">
+                <AccordionItem value="most-1" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Êtes-vous à SBH ou en France ?
                   </AccordionTrigger>
@@ -145,7 +145,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="most-2" className="border border-border rounded-lg px-6">
+                <AccordionItem value="most-2" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Quelle technologie utilisez-vous ?
                   </AccordionTrigger>
@@ -159,7 +159,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="most-3" className="border border-border rounded-lg px-6">
+                <AccordionItem value="most-3" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Quelle part d'IA utilisez-vous pour le développement ?
                   </AccordionTrigger>
@@ -172,7 +172,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="most-4" className="border border-border rounded-lg px-6">
+                <AccordionItem value="most-4" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     J'ai déjà un nom de domaine et une adresse e-mail configurés.
                   </AccordionTrigger>
@@ -183,7 +183,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="most-5" className="border border-border rounded-lg px-6">
+                <AccordionItem value="most-5" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Nous souhaiterions ajouter certaines fonctionnalités et en supprimer d'autres : comment
                     facturez-vous les modifications ?
@@ -199,7 +199,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="most-6" className="border border-border rounded-lg px-6">
+                <AccordionItem value="most-6" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Avez-vous quelqu'un qui pourrait rédiger les textes pour notre site ?
                   </AccordionTrigger>
@@ -211,7 +211,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="most-7" className="border border-border rounded-lg px-6">
+                <AccordionItem value="most-7" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Je suis développeur : pourquoi ne pas créer mon propre CMS sur mesure ?
                   </AccordionTrigger>
@@ -258,10 +258,10 @@ export default function FAQPage() {
 
         {/* Générale */}
         {activeTab === "general" && (
-          <section className="py-20">
-            <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <section className="py-16 sm:py-24 lg:py-28">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <Accordion type="single" collapsible className="space-y-4">
-                <AccordionItem value="general-1" className="border border-border rounded-lg px-6">
+                <AccordionItem value="general-1" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Comment fonctionne l'abonnement ?
                   </AccordionTrigger>
@@ -272,7 +272,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="general-2" className="border border-border rounded-lg px-6">
+                <AccordionItem value="general-2" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Quels moyens de paiement acceptez-vous ?
                   </AccordionTrigger>
@@ -282,7 +282,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="general-3" className="border border-border rounded-lg px-6">
+                <AccordionItem value="general-3" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Proposez-vous une période d'essai ?
                   </AccordionTrigger>
@@ -292,7 +292,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="general-4" className="border border-border rounded-lg px-6">
+                <AccordionItem value="general-4" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Puis-je personnaliser le design de mon site ?
                   </AccordionTrigger>
@@ -303,7 +303,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="general-5" className="border border-border rounded-lg px-6">
+                <AccordionItem value="general-5" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Le site est-il optimisé pour mobile ?
                   </AccordionTrigger>
@@ -314,7 +314,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="general-6" className="border border-border rounded-lg px-6">
+                <AccordionItem value="general-6" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Comment fonctionne le support technique ?
                   </AccordionTrigger>
@@ -330,10 +330,10 @@ export default function FAQPage() {
 
         {/* Propriétaires */}
         {activeTab === "owners" && (
-          <section className="py-20">
-            <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <section className="py-16 sm:py-24 lg:py-28">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <Accordion type="single" collapsible className="space-y-4">
-                <AccordionItem value="owner-1" className="border border-border rounded-lg px-6">
+                <AccordionItem value="owner-1" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Ai-je vraiment besoin d'un site si je suis déjà sur Airbnb/Booking ?
                   </AccordionTrigger>
@@ -344,7 +344,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="owner-2" className="border border-border rounded-lg px-6">
+                <AccordionItem value="owner-2" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Est-ce compliqué à utiliser ? Je ne suis pas technique.
                   </AccordionTrigger>
@@ -355,7 +355,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="owner-3" className="border border-border rounded-lg px-6">
+                <AccordionItem value="owner-3" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Comment les visiteurs me trouvent-ils sur Google ?
                   </AccordionTrigger>
@@ -368,7 +368,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="owner-4" className="border border-border rounded-lg px-6">
+                <AccordionItem value="owner-4" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Comment gérer les demandes et réservations ?
                   </AccordionTrigger>
@@ -380,7 +380,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="owner-5" className="border border-border rounded-lg px-6">
+                <AccordionItem value="owner-5" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Puis-je avoir plusieurs villas sur le même site ?
                   </AccordionTrigger>
@@ -391,7 +391,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="owner-6" className="border border-border rounded-lg px-6">
+                <AccordionItem value="owner-6" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Quel est le coût et qu'est-ce qui est inclus ?
                   </AccordionTrigger>
@@ -403,7 +403,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="owner-7" className="border border-border rounded-lg px-6">
+                <AccordionItem value="owner-7" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Puis-je garder Airbnb/Booking en parallèle ?
                   </AccordionTrigger>
@@ -415,7 +415,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="owner-8" className="border border-border rounded-lg px-6">
+                <AccordionItem value="owner-8" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Que se passe-t-il si je veux arrêter ?
                   </AccordionTrigger>
@@ -432,10 +432,10 @@ export default function FAQPage() {
 
         {/* Agences */}
         {activeTab === "agencies" && (
-          <section className="py-20">
-            <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <section className="py-16 sm:py-24 lg:py-28">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <Accordion type="single" collapsible className="space-y-4">
-                <AccordionItem value="agency-1" className="border border-border rounded-lg px-6">
+                <AccordionItem value="agency-1" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Combien de temps faut-il pour mettre en ligne notre catalogue de villas ?
                   </AccordionTrigger>
@@ -446,7 +446,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="agency-2" className="border border-border rounded-lg px-6">
+                <AccordionItem value="agency-2" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Puis-je gérer plusieurs catalogues (vente + location) ?
                   </AccordionTrigger>
@@ -457,7 +457,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="agency-3" className="border border-border rounded-lg px-6">
+                <AccordionItem value="agency-3" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Comment fonctionne la gestion des tarifs par saison ?
                   </AccordionTrigger>
@@ -469,7 +469,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="agency-4" className="border border-border rounded-lg px-6">
+                <AccordionItem value="agency-4" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Est-ce que mon équipe peut travailler à plusieurs sur le CMS ?
                   </AccordionTrigger>
@@ -480,7 +480,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="agency-5" className="border border-border rounded-lg px-6">
+                <AccordionItem value="agency-5" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Que se passe-t-il si j'ai besoin d'une fonctionnalité spécifique à mon activité ?
                   </AccordionTrigger>
@@ -492,7 +492,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="agency-6" className="border border-border rounded-lg px-6">
+                <AccordionItem value="agency-6" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Comment le SEO est-il géré pour nos villas ?
                   </AccordionTrigger>
@@ -504,7 +504,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="agency-7" className="border border-border rounded-lg px-6">
+                <AccordionItem value="agency-7" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Quel est le coût mensuel et qu'est-ce qui est inclus ?
                   </AccordionTrigger>
@@ -515,7 +515,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="agency-8" className="border border-border rounded-lg px-6">
+                <AccordionItem value="agency-8" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Puis-je intégrer le CMS à mon site existant ?
                   </AccordionTrigger>
@@ -526,7 +526,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="agency-9" className="border border-border rounded-lg px-6">
+                <AccordionItem value="agency-9" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     J'ai déjà un site web pour mon agence, dois-je ajouter manuellement les villas ?
                   </AccordionTrigger>
@@ -537,7 +537,7 @@ export default function FAQPage() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="agency-10" className="border border-border rounded-lg px-6">
+                <AccordionItem value="agency-10" className="border border-border rounded-lg px-4 sm:px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     Mon site est bien classé sur Google, vais-je perdre mon classement en passant sur votre CMS ?
                   </AccordionTrigger>
@@ -553,22 +553,22 @@ export default function FAQPage() {
         )}
 
         {/* CTA */}
-        <section className="py-20 border-t border-border bg-muted/30">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+        <section className="py-16 sm:py-24 lg:py-28 border-t border-border bg-muted/30">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <FadeIn>
-              <h2 className="text-3xl font-bold tracking-tight mb-4 font-serif">{content.cta.title}</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3 sm:mb-4 font-serif">{content.cta.title}</h2>
             </FadeIn>
             <FadeIn delay={100}>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto">
                 {content.cta.subtitle}
               </p>
             </FadeIn>
             <FadeIn delay={200}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <Button size="lg" className="h-12 sm:h-auto bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
                   <Link href="/agences-immobilieres">{content.cta.agencies}</Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="outline" className="h-12 sm:h-auto" asChild>
                   <Link href="/proprietaires">{content.cta.owners}</Link>
                 </Button>
               </div>

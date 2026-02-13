@@ -198,10 +198,10 @@ export default function HomePage() {
         <HomeHeroOfferSlider />
 
         {/* Stats band — animated counters */}
-        <section className="py-12 px-6 lg:px-8 bg-primary text-primary-foreground relative overflow-hidden">
+        <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground relative overflow-hidden">
           <div className="absolute inset-0 shimmer-gold opacity-30" />
           <motion.div
-            className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 relative"
+            className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 relative"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -209,10 +209,10 @@ export default function HomePage() {
           >
             {content.stats.map((stat, i) => (
               <motion.div key={i} variants={fadeInUp} className="text-center">
-                <div className="font-serif text-4xl lg:text-5xl font-medium mb-2 text-accent">
+                <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-1 sm:mb-2 text-accent">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-sm text-primary-foreground/70 tracking-wide uppercase">
+                <div className="text-xs sm:text-sm text-primary-foreground/70 tracking-wide uppercase">
                   {stat.label}
                 </div>
               </motion.div>
@@ -221,51 +221,47 @@ export default function HomePage() {
         </section>
 
         {/* 2. Deux profils, un même objectif */}
-        <section className="py-28 px-6 lg:px-8 bg-muted/30 relative">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-muted/30 relative">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-20">
+            <div className="text-center mb-12 sm:mb-16 lg:mb-20">
               <FadeIn>
-                <Badge variant="luxury" className="mb-6">{content.hero.badge}</Badge>
+                <Badge variant="luxury" className="mb-4 sm:mb-6">{content.hero.badge}</Badge>
               </FadeIn>
               <TextReveal
                 as="h2"
-                className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight"
+                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-4 sm:mb-6 tracking-tight"
               >
                 {content.hero.title}
               </TextReveal>
               <FadeIn delay={300}>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{content.hero.subtitle}</p>
+                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{content.hero.subtitle}</p>
               </FadeIn>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-10">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
               <FadeIn direction="left" delay={100}>
                 <Card className="border border-border/50 hover:border-accent/30 transition-all duration-500 rounded-sm overflow-hidden card-glow group">
                   <ParallaxImage
                     src="/villa-owner-looking-at-website-on-laptop-in-luxur.jpg"
                     alt="Propriétaire dans sa villa consultant son site web"
-                    containerClassName="h-72"
+                    containerClassName="h-48 sm:h-60 lg:h-72"
                     speed={0.2}
                   >
-                    <div className="absolute bottom-6 left-6 flex items-center gap-4 z-10">
-                      <motion.div
-                        className="w-12 h-12 bg-white/95 flex items-center justify-center backdrop-blur-sm"
-                        whileHover={{ rotate: 12, scale: 1.1 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                      >
-                        <Home className="h-6 w-6 text-accent" />
-                      </motion.div>
-                      <h3 className="text-2xl font-serif font-medium text-white">{content.owners.title}</h3>
+                    <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 flex items-center gap-3 sm:gap-4 z-10">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/95 flex items-center justify-center backdrop-blur-sm">
+                        <Home className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-serif font-medium text-white">{content.owners.title}</h3>
                     </div>
                   </ParallaxImage>
-                  <CardContent className="p-8">
-                    <p className="text-muted-foreground mb-6 leading-relaxed">{content.owners.desc}</p>
-                    <ul className="space-y-3 mb-6">
+                  <CardContent className="p-5 sm:p-6 lg:p-8">
+                    <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">{content.owners.desc}</p>
+                    <ul className="space-y-2.5 sm:space-y-3 mb-5 sm:mb-6">
                       {content.owners.features.map((feature, i) => (
                         <motion.li
                           key={i}
-                          className="flex items-start gap-3"
+                          className="flex items-start gap-2.5 sm:gap-3"
                           initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
@@ -277,16 +273,10 @@ export default function HomePage() {
                       ))}
                     </ul>
                     <MagneticButton>
-                      <Button variant="luxury" className="w-full group/btn" size="lg" asChild>
+                      <Button variant="luxury" className="w-full group/btn h-12 sm:h-auto" size="lg" asChild>
                         <Link href="/proprietaires">
                           {content.owners.cta}
-                          <motion.span
-                            className="inline-block ml-2"
-                            initial={{ x: 0 }}
-                            whileHover={{ x: 4 }}
-                          >
-                            <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                          </motion.span>
+                          <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
                         </Link>
                       </Button>
                     </MagneticButton>
@@ -299,27 +289,23 @@ export default function HomePage() {
                   <ParallaxImage
                     src="/modern-luxury-real-estate-office-in-saint-barthele.jpg"
                     alt="Bureau d'agence immobilière à Saint-Barthélemy"
-                    containerClassName="h-72"
+                    containerClassName="h-48 sm:h-60 lg:h-72"
                     speed={0.2}
                   >
-                    <div className="absolute bottom-6 left-6 flex items-center gap-4 z-10">
-                      <motion.div
-                        className="w-12 h-12 bg-white/95 flex items-center justify-center backdrop-blur-sm"
-                        whileHover={{ rotate: -12, scale: 1.1 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                      >
-                        <Building2 className="h-6 w-6 text-accent" />
-                      </motion.div>
-                      <h3 className="text-2xl font-serif font-medium text-white">{content.agencies.title}</h3>
+                    <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 flex items-center gap-3 sm:gap-4 z-10">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/95 flex items-center justify-center backdrop-blur-sm">
+                        <Building2 className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-serif font-medium text-white">{content.agencies.title}</h3>
                     </div>
                   </ParallaxImage>
-                  <CardContent className="p-8">
-                    <p className="text-muted-foreground mb-6 leading-relaxed">{content.agencies.desc}</p>
-                    <ul className="space-y-3 mb-6">
+                  <CardContent className="p-5 sm:p-6 lg:p-8">
+                    <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">{content.agencies.desc}</p>
+                    <ul className="space-y-2.5 sm:space-y-3 mb-5 sm:mb-6">
                       {content.agencies.features.map((feature, i) => (
                         <motion.li
                           key={i}
-                          className="flex items-start gap-3"
+                          className="flex items-start gap-2.5 sm:gap-3"
                           initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
@@ -331,16 +317,10 @@ export default function HomePage() {
                       ))}
                     </ul>
                     <MagneticButton>
-                      <Button variant="luxury" className="w-full group/btn" size="lg" asChild>
+                      <Button variant="luxury" className="w-full group/btn h-12 sm:h-auto" size="lg" asChild>
                         <Link href="/agences-immobilieres">
                           {content.agencies.cta}
-                          <motion.span
-                            className="inline-block ml-2"
-                            initial={{ x: 0 }}
-                            whileHover={{ x: 4 }}
-                          >
-                            <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                          </motion.span>
+                          <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
                         </Link>
                       </Button>
                     </MagneticButton>
@@ -352,28 +332,28 @@ export default function HomePage() {
         </section>
 
         {/* 3. Sécurité & Performance */}
-        <section className="py-28 px-6 lg:px-8 bg-background relative">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-background relative">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-20">
+            <div className="text-center mb-12 sm:mb-16 lg:mb-20">
               <FadeIn>
-                <Badge variant="luxury" className="mb-6">{content.security.badge}</Badge>
+                <Badge variant="luxury" className="mb-4 sm:mb-6">{content.security.badge}</Badge>
               </FadeIn>
               <TextReveal
                 as="h2"
-                className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight"
+                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-4 sm:mb-6 tracking-tight"
               >
                 {content.security.title}
               </TextReveal>
               <FadeIn delay={300}>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                   {content.security.subtitle}
                 </p>
               </FadeIn>
             </div>
 
             <motion.div
-              className="grid md:grid-cols-3 gap-8"
+              className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -382,17 +362,13 @@ export default function HomePage() {
               {content.security.cards.map((card, i) => (
                 <motion.div key={i} variants={scaleBlurIn}>
                   <Card className="border border-border/50 rounded-sm hover:border-accent/30 transition-all duration-500 card-glow h-full accent-line-top">
-                    <CardContent className="p-8">
-                      <motion.div
-                        className="w-12 h-12 bg-accent/10 flex items-center justify-center mb-6"
-                        whileHover={{ rotate: 8, scale: 1.1 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                      >
-                        {i === 0 && <Shield className="h-6 w-6 text-accent" />}
-                        {i === 1 && <Zap className="h-6 w-6 text-accent" />}
-                        {i === 2 && <TrendingUp className="h-6 w-6 text-accent" />}
-                      </motion.div>
-                      <h3 className="text-xl font-serif font-medium mb-3">{card.title}</h3>
+                    <CardContent className="p-5 sm:p-6 lg:p-8">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 flex items-center justify-center mb-4 sm:mb-6">
+                        {i === 0 && <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />}
+                        {i === 1 && <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />}
+                        {i === 2 && <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />}
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-serif font-medium mb-2 sm:mb-3">{card.title}</h3>
                       <p className="text-muted-foreground text-sm leading-relaxed">{card.desc}</p>
                     </CardContent>
                   </Card>
@@ -403,35 +379,29 @@ export default function HomePage() {
         </section>
 
         {/* 4. CTA Demo */}
-        <section className="py-24 px-6 lg:px-8 relative overflow-hidden">
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="absolute inset-0 shimmer-gold" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--accent)_0%,transparent_70%)] opacity-[0.04]" />
           <div className="max-w-4xl mx-auto relative">
             <FadeIn className="text-center">
-              <Badge variant="luxury" className="mb-6">
-                <Play className="w-3.5 h-3.5 mr-1.5 fill-accent text-accent" />
+              <Badge variant="luxury" className="mb-4 sm:mb-6">
+                <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 fill-accent text-accent" />
                 {content.demo.badge}
               </Badge>
             </FadeIn>
             <TextReveal
               as="h2"
-              className="font-serif text-3xl lg:text-4xl font-medium mb-4 tracking-tight text-center"
+              className="font-serif text-2xl sm:text-3xl lg:text-4xl font-medium mb-3 sm:mb-4 tracking-tight text-center"
             >
               {content.demo.title}
             </TextReveal>
             <FadeIn delay={300} className="text-center">
-              <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">{content.demo.subtitle}</p>
-              <MagneticButton className="inline-block">
-                <Button size="xl" variant="luxury" className="text-base group" asChild>
+              <p className="text-base sm:text-lg text-muted-foreground mb-8 sm:mb-10 max-w-2xl mx-auto">{content.demo.subtitle}</p>
+              <MagneticButton className="inline-block w-full sm:w-auto">
+                <Button size="xl" variant="luxury" className="text-sm sm:text-base group w-full sm:w-auto h-14 sm:h-auto" asChild>
                   <Link href="/demo">
                     {content.demo.cta}
-                    <motion.span
-                      className="inline-block ml-2"
-                      whileHover={{ x: 4 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                      <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                    </motion.span>
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 ml-2 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
               </MagneticButton>
@@ -440,31 +410,31 @@ export default function HomePage() {
         </section>
 
         {/* 5. Features "Ce que vous aurez" */}
-        <section className="py-28 px-6 lg:px-8 bg-background relative">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-background relative">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-20">
+            <div className="text-center mb-12 sm:mb-16 lg:mb-20">
               <FadeIn>
-                <Badge variant="luxury" className="mb-6">
-                  <Sparkles className="w-3.5 h-3.5 mr-1.5 text-accent" />
+                <Badge variant="luxury" className="mb-4 sm:mb-6">
+                  <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5 text-accent" />
                   {content.features.badge}
                 </Badge>
               </FadeIn>
               <TextReveal
                 as="h2"
-                className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight"
+                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-4 sm:mb-6 tracking-tight"
               >
                 {content.features.title}
               </TextReveal>
               <FadeIn delay={300}>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                   {content.features.subtitle}
                 </p>
               </FadeIn>
             </div>
 
             <motion.div
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+              className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -474,20 +444,15 @@ export default function HomePage() {
                 <motion.div
                   key={i}
                   variants={scaleBlurIn}
-                  whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                  className="bg-card border border-border/50 rounded-sm p-8 hover:border-accent/30 transition-colors duration-500 card-glow h-full accent-line-top"
+                  className="bg-card border border-border/50 rounded-sm p-4 sm:p-6 lg:p-8 hover:border-accent/30 transition-colors duration-500 card-glow h-full accent-line-top"
                 >
-                  <motion.div
-                    className="w-12 h-12 bg-accent/10 flex items-center justify-center mb-6"
-                    whileHover={{ rotate: 12, scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                  >
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 flex items-center justify-center mb-3 sm:mb-4 lg:mb-6">
                     {React.createElement(featureIcons[i], {
-                      className: "h-6 w-6 text-accent",
+                      className: "h-5 w-5 sm:h-6 sm:w-6 text-accent",
                     })}
-                  </motion.div>
-                  <h3 className="font-serif font-medium mb-2 text-lg">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+                  </div>
+                  <h3 className="font-serif font-medium mb-1 sm:mb-2 text-base sm:text-lg">{feature.title}</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -504,39 +469,33 @@ export default function HomePage() {
         <TestimonialsCarousel />
 
         {/* 9. CTA final */}
-        <section className="py-32 px-6 lg:px-8 relative overflow-hidden bg-primary text-primary-foreground">
+        <section className="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-primary text-primary-foreground">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,var(--accent)_0%,transparent_50%)] opacity-10" />
           <div className="absolute inset-0 shimmer-gold opacity-20" />
           <div className="max-w-4xl mx-auto text-center relative">
             <FadeIn>
-              <div className="luxury-divider mb-8" />
+              <div className="luxury-divider mb-6 sm:mb-8" />
             </FadeIn>
             <TextReveal
               as="h2"
-              className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-4 sm:mb-6 tracking-tight"
             >
               {content.cta.title}
             </TextReveal>
             <FadeIn delay={400}>
-              <p className="text-xl mb-10 text-primary-foreground/80">{content.cta.subtitle}</p>
+              <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-10 text-primary-foreground/80">{content.cta.subtitle}</p>
             </FadeIn>
             <FadeIn delay={600}>
-              <MagneticButton className="inline-block">
+              <MagneticButton className="inline-block w-full sm:w-auto">
                 <Button
                   size="xl"
                   variant="luxury"
-                  className="text-lg group"
+                  className="text-base sm:text-lg group w-full sm:w-auto h-14 sm:h-auto"
                   asChild
                 >
                   <Link href="/contact">
                     {content.cta.button}
-                    <motion.span
-                      className="inline-block ml-2"
-                      whileHover={{ x: 4 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                      <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                    </motion.span>
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 ml-2 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
               </MagneticButton>

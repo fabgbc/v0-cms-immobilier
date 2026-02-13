@@ -167,31 +167,31 @@ export function PricingSection() {
   const [isYearly, setIsYearly] = useState(false)
 
   return (
-    <section className="py-28 px-6 lg:px-8 bg-muted/30 relative">
+    <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-muted/30 relative">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
           <FadeIn>
-            <Badge variant="luxury" className="mb-6">{content.badge}</Badge>
+            <Badge variant="luxury" className="mb-4 sm:mb-6">{content.badge}</Badge>
           </FadeIn>
           <TextReveal
             as="h2"
-            className="font-serif text-4xl lg:text-5xl font-medium mb-6 tracking-tight"
+            className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-4 sm:mb-6 tracking-tight"
           >
             {content.title}
           </TextReveal>
           <FadeIn delay={300}>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{content.subtitle}</p>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{content.subtitle}</p>
           </FadeIn>
         </div>
 
         {/* Toggle Mensuel/Annuel */}
-        <FadeIn delay={100} className="flex justify-center mb-16">
+        <FadeIn delay={100} className="flex justify-center mb-10 sm:mb-14 lg:mb-16">
           <div className="relative flex items-center bg-secondary rounded-sm p-1">
             <button
               onClick={() => setIsYearly(false)}
               className={cn(
-                "relative z-10 px-6 py-2.5 text-sm font-medium rounded-sm transition-colors",
+                "relative z-10 px-4 sm:px-6 py-2.5 text-sm font-medium rounded-sm transition-colors min-h-[44px]",
                 !isYearly ? "text-accent-foreground" : "text-muted-foreground hover:text-foreground"
               )}
             >
@@ -200,13 +200,13 @@ export function PricingSection() {
             <button
               onClick={() => setIsYearly(true)}
               className={cn(
-                "relative z-10 px-6 py-2.5 text-sm font-medium rounded-sm transition-colors",
+                "relative z-10 px-4 sm:px-6 py-2.5 text-sm font-medium rounded-sm transition-colors min-h-[44px]",
                 isYearly ? "text-accent-foreground" : "text-muted-foreground hover:text-foreground"
               )}
             >
               {content.yearly}
               <motion.span
-                className="ml-2 text-xs font-bold text-accent inline-block"
+                className="ml-1.5 sm:ml-2 text-xs font-bold text-accent inline-block"
                 animate={{ scale: isYearly ? [1, 1.2, 1] : 1 }}
                 transition={{ duration: 0.3 }}
               >
@@ -228,11 +228,11 @@ export function PricingSection() {
 
         {/* Pricing cards */}
         <motion.div
-          className="grid md:grid-cols-3 gap-8"
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {content.plans.map((plan, i) => {
             const isHighlighted = i === 1
@@ -262,7 +262,7 @@ export function PricingSection() {
                       style={{ transformOrigin: "left" }}
                     />
                   )}
-                  <CardContent className="p-8">
+                  <CardContent className="p-5 sm:p-6 lg:p-8">
                     {isHighlighted && (
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -270,18 +270,18 @@ export function PricingSection() {
                         viewport={{ once: true }}
                         transition={{ delay: 0.4, type: "spring", stiffness: 300, damping: 20 }}
                       >
-                        <Badge variant="luxury" className="mb-4">{content.popular}</Badge>
+                        <Badge variant="luxury" className="mb-3 sm:mb-4">{content.popular}</Badge>
                       </motion.div>
                     )}
-                    <h3 className="font-serif text-2xl font-medium mb-2">{plan.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-6">{plan.desc}</p>
+                    <h3 className="font-serif text-xl sm:text-2xl font-medium mb-1.5 sm:mb-2">{plan.name}</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6">{plan.desc}</p>
 
-                    <div className="mb-8">
+                    <div className="mb-6 sm:mb-8">
                       <div className="flex items-baseline gap-1">
-                        <span className="font-serif text-4xl lg:text-5xl font-medium">
+                        <span className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium">
                           <AnimatedPrice value={isYearly ? plan.yearlyPrice : plan.monthlyPrice} />
                         </span>
-                        <span className="text-muted-foreground text-sm">
+                        <span className="text-muted-foreground text-xs sm:text-sm">
                           {isYearly ? content.perYear : content.perMonth}
                         </span>
                       </div>
@@ -303,7 +303,7 @@ export function PricingSection() {
                     <Button
                       variant={isHighlighted ? "luxury" : "outline"}
                       size="lg"
-                      className={cn("w-full mb-8 group", isHighlighted && "hover-glow")}
+                      className={cn("w-full mb-6 sm:mb-8 group h-12 sm:h-auto", isHighlighted && "hover-glow")}
                       asChild
                     >
                       <Link href="/contact">

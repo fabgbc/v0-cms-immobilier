@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Button, type buttonVariants } from "@/components/ui/button"
 import type { VariantProps } from "class-variance-authority"
@@ -23,9 +23,15 @@ export function MotionButton({ children, ...props }: MotionButtonProps) {
 export function MagneticButton({ children, className }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768 || "ontouchstart" in window)
+    check()
+  }, [])
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return
+    if (isMobile || !ref.current) return
     const { left, top, width, height } = ref.current.getBoundingClientRect()
     const x = (e.clientX - (left + width / 2)) * 0.15
     const y = (e.clientY - (top + height / 2)) * 0.15
@@ -33,6 +39,19 @@ export function MagneticButton({ children, className }: { children: React.ReactN
   }
 
   const handleMouseLeave = () => setPosition({ x: 0, y: 0 })
+
+  // On mobile, render without magnetic effect
+  if (isMobile) {
+    return (
+      <motion.div
+        whileTap={{ scale: 0.97 }}
+        transition={{ duration: 0.15 }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    )
+  }
 
   return (
     <motion.div

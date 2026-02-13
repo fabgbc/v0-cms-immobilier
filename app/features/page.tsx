@@ -38,25 +38,25 @@ export default function FeaturesPage() {
 
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-6 lg:px-8">
+        <section className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto text-center">
               <FadeIn>
-                <h1 className="text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1] text-balance font-serif">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-4 sm:mb-6 leading-[1.1] text-balance font-serif">
                   Fonctionnalités du CMS
                 </h1>
               </FadeIn>
               <FadeIn delay={100}>
-                <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-4 leading-relaxed">
                   Tout ce qu'il faut pour un site premium + une gestion simple, déjà intégré.
                 </p>
               </FadeIn>
               <FadeIn delay={200}>
-                <div className="max-w-3xl mx-auto bg-accent/5 border border-accent/20 rounded-2xl p-8 mt-12">
-                  <h2 className="text-2xl font-bold mb-4">
+                <div className="max-w-3xl mx-auto bg-accent/5 border border-accent/20 rounded-2xl p-5 sm:p-6 lg:p-8 mt-8 sm:mt-10 lg:mt-12">
+                  <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
                     Un CMS qui vous fait gagner 15h par semaine et 40% de demandes en plus
                   </h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                     Chaque fonctionnalité a été pensée pour réduire votre charge de travail tout en maximisant vos
                     conversions. Découvrez comment chaque élément transforme concrètement votre activité.
                   </p>
@@ -67,33 +67,33 @@ export default function FeaturesPage() {
         </section>
 
         {/* Fonctionnalités principales */}
-        <section className="py-20 px-6 lg:px-8 border-t border-border">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 border-t border-border">
           <div className="max-w-7xl mx-auto">
             <FadeIn>
-              <div className="max-w-4xl mx-auto text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight font-serif">Nos principales fonctionnalités</h2>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-14 lg:mb-16">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-tight font-serif">Nos principales fonctionnalités</h2>
+                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
                   Des fonctionnalités puissantes et intuitives pour gérer votre activité immobilière efficacement.
                 </p>
               </div>
             </FadeIn>
 
-            <Accordion type="single" collapsible className="w-full space-y-4">
-              <AccordionItem value="visibility" className="border-2 rounded-lg px-6">
+            <Accordion type="single" collapsible className="w-full space-y-3 sm:space-y-4">
+              <AccordionItem value="visibility" className="border-2 rounded-lg px-4 sm:px-6">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Globe className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Globe className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Visibilité & Référencement</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Visibilité & Référencement</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         IA rédaction, zones SEO préconfigurées, traductions multilingues, performance ultra-rapide
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     Notre CMS est bâti sur une architecture technique de pointe qui place le{" "}
                     <strong>référencement naturel au cœur de sa conception</strong>. Contrairement aux solutions
@@ -115,21 +115,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="visibility-en" className="border-2 rounded-lg px-6 bg-muted/30">
+              <AccordionItem value="visibility-en" className="border-2 rounded-lg px-4 sm:px-6 bg-muted/30">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Globe className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Globe className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Visibility & SEO (English)</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Visibility & SEO (English)</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         AI writing, preconfigured SEO zones, multilingual translations, ultra-fast performance
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     Our CMS is built on a cutting-edge technical architecture that places{" "}
                     <strong>natural referencing at the heart of its design</strong>. Unlike traditional solutions, we
@@ -149,21 +149,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="design" className="border-2 rounded-lg px-6">
+              <AccordionItem value="design" className="border-2 rounded-lg px-4 sm:px-6">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Home className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Home className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Design & Expérience</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Design & Expérience</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Design premium, bibliothèque d'icônes, formulaires optimisés, connexion multi-canal
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     <strong>Trois options s'offrent à vous</strong>, selon votre situation et vos préférences :
                   </p>
@@ -192,21 +192,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="design-en" className="border-2 rounded-lg px-6 bg-muted/30">
+              <AccordionItem value="design-en" className="border-2 rounded-lg px-4 sm:px-6 bg-muted/30">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Home className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Home className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Design & Experience (English)</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Design & Experience (English)</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Premium design, icon library, optimized forms, multi-channel connection
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     <strong>Three options are available to you</strong>, depending on your situation and preferences:
                   </p>
@@ -232,21 +232,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="villas" className="border-2 rounded-lg px-6">
+              <AccordionItem value="villas" className="border-2 rounded-lg px-4 sm:px-6">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Database className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Database className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Gestion des Villas</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Gestion des Villas</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Import rapide, pages premium, carte interactive, SEO par villa
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     Nous avons développé une <strong>interface d'administration intuitive</strong>, spécialement pensée
                     pour le marché de Saint-Barthélemy. Chaque champ est exactement là où vous vous attendez à le
@@ -265,21 +265,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="villas-en" className="border-2 rounded-lg px-6 bg-muted/30">
+              <AccordionItem value="villas-en" className="border-2 rounded-lg px-4 sm:px-6 bg-muted/30">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Database className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Database className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Villa Management (English)</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Villa Management (English)</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Quick import, premium pages, interactive map, SEO per villa
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     We have developed an <strong>intuitive administration interface</strong>, specially designed for the
                     Saint-Barthélemy market. Every field is exactly where you expect to find it: photos, description,
@@ -298,21 +298,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="pricing" className="border-2 rounded-lg px-6">
+              <AccordionItem value="pricing" className="border-2 rounded-lg px-4 sm:px-6">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <DollarSign className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <DollarSign className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Prix & Saisons</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Prix & Saisons</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Prix dynamiques par chambre, calcul multi-saisons, saisons préconfigurées, duplication annuelle
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     Avec <strong>notre expérience de Saint-Barth</strong>, nous avons créé un système de gestion des
                     prix qui correspond exactement aux besoins du marché local. Vous définissez vos saisons (Haute,
@@ -333,21 +333,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="pricing-en" className="border-2 rounded-lg px-6 bg-muted/30">
+              <AccordionItem value="pricing-en" className="border-2 rounded-lg px-4 sm:px-6 bg-muted/30">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <DollarSign className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <DollarSign className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Pricing & Seasons (English)</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Pricing & Seasons (English)</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Dynamic room pricing, multi-season calculation, preconfigured seasons, annual duplication
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     With <strong>our experience of Saint-Barth</strong>, we have created a pricing management system
                     that exactly matches the needs of the local market. You define your seasons (High, Medium, Low, Very
@@ -366,21 +366,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="search" className="border-2 rounded-lg px-6">
+              <AccordionItem value="search" className="border-2 rounded-lg px-4 sm:px-6">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Search className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Search className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Moteur de Recherche</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Moteur de Recherche</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Filtres multiples combinables, catégories personnalisées illimitées
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     <strong>Pour les agences avec de nombreuses villas</strong>, le classement est crucial. Notre
                     système vous permet de créer autant de catégories que nécessaire : par quartier (Gustavia, Lorient,
@@ -400,21 +400,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="search-en" className="border-2 rounded-lg px-6 bg-muted/30">
+              <AccordionItem value="search-en" className="border-2 rounded-lg px-4 sm:px-6 bg-muted/30">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Search className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Search className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Search Engine (English)</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Search Engine (English)</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Multiple combinable filters, unlimited custom categories
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     <strong>For agencies with many villas</strong>, classification is crucial. Our system allows you to
                     create as many categories as needed: by neighborhood (Gustavia, Lorient, Gouverneur...), by
@@ -433,21 +433,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="pages" className="border-2 rounded-lg px-6">
+              <AccordionItem value="pages" className="border-2 rounded-lg px-4 sm:px-6">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <FileText className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <FileText className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Pages Essentielles</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Pages Essentielles</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Homepage dynamique, page conciergerie SEO, FAQ personnalisée
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     Un site de location de villas a besoin de <strong>pages stratégiques bien pensées</strong> : page
                     d'accueil engageante, présentation de l'agence ou du propriétaire, services de conciergerie,
@@ -467,21 +467,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="pages-en" className="border-2 rounded-lg px-6 bg-muted/30">
+              <AccordionItem value="pages-en" className="border-2 rounded-lg px-4 sm:px-6 bg-muted/30">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <FileText className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <FileText className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Essential Pages (English)</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Essential Pages (English)</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Dynamic homepage, SEO concierge page, personalized FAQ
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     A villa rental site needs <strong>well-thought-out strategic pages</strong>: engaging homepage,
                     agency or owner presentation, concierge services, terms and conditions, FAQ, contact...
@@ -498,21 +498,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="messaging" className="border-2 rounded-lg px-6">
+              <AccordionItem value="messaging" className="border-2 rounded-lg px-4 sm:px-6">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MessageSquare className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Messagerie & Demandes</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Messagerie & Demandes</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Dashboard centralisé, gestion par statuts, notifications multi-canal
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     Toutes vos demandes de réservation arrivent dans une <strong>interface unique et organisée</strong>.
                     Plus besoin de jongler entre les emails, les messages WhatsApp et les formulaires perdus. Tout est
@@ -532,21 +532,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="messaging-en" className="border-2 rounded-lg px-6 bg-muted/30">
+              <AccordionItem value="messaging-en" className="border-2 rounded-lg px-4 sm:px-6 bg-muted/30">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MessageSquare className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Messaging & Requests (English)</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Messaging & Requests (English)</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Centralized dashboard, status management, multi-channel notifications
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     All your booking requests arrive in a <strong>single, organized interface</strong>. No more juggling
                     between emails, WhatsApp messages and lost forms. Everything is centralized in the same place.
@@ -565,21 +565,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="maintenance" className="border-2 rounded-lg px-6">
+              <AccordionItem value="maintenance" className="border-2 rounded-lg px-4 sm:px-6">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Server className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Server className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Maintenance Technique</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Maintenance Technique</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Hébergement premium, mises à jour automatiques, monitoring 24/7, support réactif
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     Vous n'avez <strong>jamais à vous soucier de la technique</strong>. Nous gérons l'hébergement, les
                     sauvegardes, les mises à jour de sécurité, la performance des serveurs. Tout fonctionne en
@@ -599,21 +599,21 @@ export default function FeaturesPage() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="maintenance-en" className="border-2 rounded-lg px-6 bg-muted/30">
+              <AccordionItem value="maintenance-en" className="border-2 rounded-lg px-4 sm:px-6 bg-muted/30">
                 <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Server className="h-6 w-6 text-accent" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Server className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-bold text-xl mb-1">Technical Maintenance (English)</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-base sm:text-xl mb-1">Technical Maintenance (English)</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         Premium hosting, automatic updates, 24/7 monitoring, responsive support
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4 pb-6 text-base">
+                <AccordionContent className="pt-4 pb-6 text-sm sm:text-base">
                   <p className="mb-4">
                     You <strong>never have to worry about technical issues</strong>. We manage hosting, backups,
                     security updates, server performance. Everything works in the background, automatically.
@@ -632,88 +632,88 @@ export default function FeaturesPage() {
               </AccordionItem>
             </Accordion>
 
-            <div className="text-center mt-16">
-              <Button size="lg" asChild className="text-lg px-8 py-6">
+            <div className="text-center mt-10 sm:mt-14 lg:mt-16">
+              <Button size="lg" asChild className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 h-12 sm:h-auto">
                 <Link href="/contact">
                   Démarrer maintenant
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6" />
                 </Link>
               </Button>
             </div>
           </div>
         </section>
 
-        <section className="py-20 px-6 lg:px-8 bg-muted/30">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight">Sécurité & Performance</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <div className="text-center mb-8 sm:mb-10">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-tight">Sécurité & Performance</h2>
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
                 Infrastructure professionnelle pour que votre site soit toujours rapide, sécurisé, et disponible.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               <Card className="border-2">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Shield className="h-6 w-6 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8 text-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                   </div>
-                  <h3 className="font-semibold mb-2">Chiffrement SSL</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <h3 className="font-semibold mb-2 text-sm sm:text-base">Chiffrement SSL</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
                     Données chiffrées de bout en bout pour la sécurité de vos clients
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="border-2">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Database className="h-6 w-6 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8 text-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Database className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                   </div>
-                  <h3 className="font-semibold mb-2">Backup quotidien</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <h3 className="font-semibold mb-2 text-sm sm:text-base">Backup quotidien</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
                     Sauvegarde automatique de toutes vos données chaque jour
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="border-2">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Zap className="h-6 w-6 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8 text-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                   </div>
-                  <h3 className="font-semibold mb-2">99.9% uptime</h3>
-                  <p className="text-sm text-muted-foreground">Haute disponibilité garantie pour vos visiteurs</p>
+                  <h3 className="font-semibold mb-2 text-sm sm:text-base">99.9% uptime</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Haute disponibilité garantie pour vos visiteurs</p>
                 </CardContent>
               </Card>
 
               <Card className="border-2">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Lock className="h-6 w-6 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8 text-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Lock className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                   </div>
-                  <h3 className="font-semibold mb-2">RGPD compliant</h3>
-                  <p className="text-sm text-muted-foreground">Conformité totale aux réglementations européennes</p>
+                  <h3 className="font-semibold mb-2 text-sm sm:text-base">RGPD compliant</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Conformité totale aux réglementations européennes</p>
                 </CardContent>
               </Card>
             </div>
           </div>
         </section>
 
-        <section className="py-20 px-6 lg:px-8 bg-muted/30">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">Questions fréquentes</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-tight">Questions fréquentes</h2>
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
                 Tout ce que vous devez savoir avant de vous lancer, selon votre profil.
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
               <div>
-                <h3 className="text-2xl font-bold mb-6 text-accent">Pour les agences immobilières</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-accent">Pour les agences immobilières</h3>
                 <Accordion type="single" collapsible className="space-y-4">
-                  <AccordionItem value="faq-agency-1" className="bg-card border rounded-lg px-6">
+                  <AccordionItem value="faq-agency-1" className="bg-card border rounded-lg px-4 sm:px-6">
                     <AccordionTrigger className="text-left font-semibold hover:no-underline">
                       Combien de temps pour mettre en ligne mon catalogue complet ?
                     </AccordionTrigger>
@@ -723,7 +723,7 @@ export default function FeaturesPage() {
                     </AccordionContent>
                   </AccordionItem>
 
-                  <AccordionItem value="faq-agency-2" className="bg-card border rounded-lg px-6">
+                  <AccordionItem value="faq-agency-2" className="bg-card border rounded-lg px-4 sm:px-6">
                     <AccordionTrigger className="text-left font-semibold hover:no-underline">
                       Est-ce que je garde mes URLs actuelles pour le SEO ?
                     </AccordionTrigger>
@@ -733,7 +733,7 @@ export default function FeaturesPage() {
                     </AccordionContent>
                   </AccordionItem>
 
-                  <AccordionItem value="faq-agency-3" className="bg-card border rounded-lg px-6">
+                  <AccordionItem value="faq-agency-3" className="bg-card border rounded-lg px-4 sm:px-6">
                     <AccordionTrigger className="text-left font-semibold hover:no-underline">
                       Puis-je personnaliser le design à 100% ?
                     </AccordionTrigger>
@@ -746,9 +746,9 @@ export default function FeaturesPage() {
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold mb-6 text-accent">Pour les propriétaires</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-accent">Pour les propriétaires</h3>
                 <Accordion type="single" collapsible className="space-y-4">
-                  <AccordionItem value="faq-owner-1" className="bg-card border rounded-lg px-6">
+                  <AccordionItem value="faq-owner-1" className="bg-card border rounded-lg px-4 sm:px-6">
                     <AccordionTrigger className="text-left font-semibold hover:no-underline">
                       Je ne suis pas technique, est-ce vraiment facile à utiliser ?
                     </AccordionTrigger>
@@ -758,7 +758,7 @@ export default function FeaturesPage() {
                     </AccordionContent>
                   </AccordionItem>
 
-                  <AccordionItem value="faq-owner-2" className="bg-card border rounded-lg px-6">
+                  <AccordionItem value="faq-owner-2" className="bg-card border rounded-lg px-4 sm:px-6">
                     <AccordionTrigger className="text-left font-semibold hover:no-underline">
                       Combien de temps pour mettre ma villa en ligne ?
                     </AccordionTrigger>
@@ -768,7 +768,7 @@ export default function FeaturesPage() {
                     </AccordionContent>
                   </AccordionItem>
 
-                  <AccordionItem value="faq-owner-3" className="bg-card border rounded-lg px-6">
+                  <AccordionItem value="faq-owner-3" className="bg-card border rounded-lg px-4 sm:px-6">
                     <AccordionTrigger className="text-left font-semibold hover:no-underline">
                       Est-ce que j'aurai vraiment plus de demandes qu'avec les OTAs ?
                     </AccordionTrigger>
@@ -783,30 +783,30 @@ export default function FeaturesPage() {
           </div>
         </section>
 
-        <section className="py-20 px-6 lg:px-8 bg-muted/30">
+        <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight">Découvrez nos autres solutions</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-tight">Découvrez nos autres solutions</h2>
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
                 Des outils complémentaires pour optimiser votre activité immobilière
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
               <Card className="border-2 hover:border-accent/50 transition-all hover:shadow-xl rounded-2xl overflow-hidden group">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <Database className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                    <Database className="h-6 w-6 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">CRM Immobilier</h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">CRM Immobilier</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
                     Gérez tous vos contacts, leads et clients depuis un tableau de bord unique. Suivez chaque demande,
                     automatisez vos relances et ne perdez plus aucune opportunité.
                   </p>
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors bg-transparent"
+                    className="w-full h-12 sm:h-auto group-hover:bg-accent group-hover:text-accent-foreground transition-colors bg-transparent"
                   >
                     <Link href="/crm">
                       En savoir plus
@@ -817,19 +817,19 @@ export default function FeaturesPage() {
               </Card>
 
               <Card className="border-2 hover:border-accent/50 transition-all hover:shadow-xl rounded-2xl overflow-hidden group">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <FileText className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                    <FileText className="h-6 w-6 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Guestbook Numérique</h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Guestbook Numérique</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
                     Offrez à vos clients une expérience premium avec un livret d'accueil digital personnalisé.
                     Informations pratiques, recommandations locales et services à portée de main.
                   </p>
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors bg-transparent"
+                    className="w-full h-12 sm:h-auto group-hover:bg-accent group-hover:text-accent-foreground transition-colors bg-transparent"
                   >
                     <Link href="/guestbook">
                       En savoir plus
@@ -840,19 +840,19 @@ export default function FeaturesPage() {
               </Card>
 
               <Card className="border-2 hover:border-accent/50 transition-all hover:shadow-xl rounded-2xl overflow-hidden group">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <ArrowRight className="h-7 w-7 text-accent" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                    <ArrowRight className="h-6 w-6 sm:h-7 sm:w-7 text-accent" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Obtenez plus de réservations</h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Obtenez plus de réservations</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
                     Découvrez nos conseils et stratégies pour maximiser vos réservations. Optimisation SEO, marketing
                     digital et meilleures pratiques pour booster votre activité.
                   </p>
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors bg-transparent"
+                    className="w-full h-12 sm:h-auto group-hover:bg-accent group-hover:text-accent-foreground transition-colors bg-transparent"
                   >
                     <Link href="/blog">
                       En savoir plus
